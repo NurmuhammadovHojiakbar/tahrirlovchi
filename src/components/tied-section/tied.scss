@@ -1,0 +1,51 @@
+.site-tied{
+    position: relative;
+    padding-top: 50px;
+    padding-bottom: 95px;
+}
+
+.useful-sites{
+
+    &__slider{}
+
+    &__swiper.swiper{
+        padding: 19px 30px;
+        background-color: #eeffef;
+        border-radius: 16px;
+    }
+
+    .swiper-slide{
+        display: flex;
+        height: auto;
+    }
+}
+
+.swiper-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 26px;
+    background-color: #fff;
+    border-radius: 16px;
+    border: 1px solid #efefef;
+    text-align: center;
+
+    &__img{
+        margin-bottom: 20px;
+    }
+
+    &__line{
+        height: 2px;
+        width: 100%;
+        background-color: #497bcb;
+        opacity: 0.2;
+        margin-bottom: 19px;
+    }
+
+    &__text{
+        margin: 0;
+        font-size: 14px;
+        line-height: 19px;
+    }
+}
