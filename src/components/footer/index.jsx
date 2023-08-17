@@ -41,11 +41,15 @@ const Footer = () => {
             className="site-footer__logo"
             src={LogoIcon}
             alt="Tahrirlovchi"
+            width={157}
+            height={50}
           />
           <img
             className="site-footer__logo"
             src={CompanyIcon}
             alt="Uzinfocom"
+            width={181}
+            height={20}
           />
         </div>
         <div className="site-footer__socials">
