@@ -2,6 +2,34 @@
     position: relative;
     padding-top: 50px;
     padding-bottom: 95px;
+
+    &::before{
+        opacity: 0.5;
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+        width: 140px;
+        height: 100%;
+        background: url("../../assets/images/tied-bg.png") no-repeat calc(100% + 55px) center;
+    }
+
+    &::after{
+        opacity: 0.5;
+        transform: rotate(180deg);
+        position: absolute;
+        top: 0;
+        right: 0;
+        content: "";
+        width: 140px;
+        height: 100%;
+        background: url("../../assets/images/tied-bg.png") no-repeat calc(100% + 55px) center;
+    }
+
+    .container{
+        position: relative;
+        z-index: 1;
+    }
 }
 
 .useful-sites{
