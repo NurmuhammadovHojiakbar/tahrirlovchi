@@ -1,4 +1,26 @@
+import { ClockIcon, MailIcon, PhoneIcon } from "../../icons";
+
 const Contact = () => {
+  const list = [
+    {
+      id: 1,
+      title: "Telefon:",
+      value: "+998(71) 123-45-67",
+      icon: <PhoneIcon />,
+    },
+    {
+      id: 2,
+      title: "E-mail:",
+      value: "uztiljamgarma@exat.uz",
+      icon: <MailIcon />,
+    },
+    {
+      id: 3,
+      title: "Ish vaqti:",
+      value: "Dushanba - juma: 9:00 dan 18:00 gacha",
+      icon: <ClockIcon />,
+    },
+  ];
   return (
     <div className="contact">
       <h2 className="site-title contact-title">Biz bilan bog&apos;laning</h2>
@@ -30,6 +52,18 @@ const Contact = () => {
           </div>
           <button className="contact-form__button">Yuborish</button>
         </form>
+
+        <ul className="contact-list">
+          {list.map((item) => (
+            <li className="contact-item" key={item.id}>
+              <div className="contact-item__wrapper">{item.icon}</div>
+              <div className="contact-item__text">
+                <h3 className="contact-item__title">{item.title}</h3>
+                <p className="contact-item__value">{item.value}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
