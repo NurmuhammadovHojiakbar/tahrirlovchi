@@ -1,9 +1,11 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
 import ZiyoNetImg from "../../../assets/images/ziyonet.png";
 import ExaridImg from "../../../assets/images/exarid.png";
 import DxaridImg from "../../../assets/images/dxarid.png";
 import MustaqillikImg from "../../../assets/images/mustaqillik.png";
 import UmailImg from "../../../assets/images/umail.png";
+import { SliderIcon } from "../../icons";
 
 const UsefulSites = () => {
   const sites = [
@@ -38,15 +40,31 @@ const UsefulSites = () => {
       title: "Ta'lim portali",
     },
   ];
+
   return (
     <div className="useful-sites">
       <h2 className="site-title useful-sites__title">Foydali saytlar</h2>
 
       <div className="useful-sites__slider">
+        <div className="swiper-controller">
+          <button className="swiper-button swiper-button__left">
+            <SliderIcon />
+          </button>
+        </div>
         <Swiper
           className="useful-sites__swiper"
           spaceBetween={20}
           slidesPerView={5}
+          modules={[Navigation, Autoplay]}
+          navigation={{
+            prevEl: ".swiper-button__left",
+            nextEl: ".swiper-button__right",
+          }}
+          speed={300}
+          autoplay={{
+            delay: 3500,
+            disableOnInteraction: false,
+          }}
         >
           {sites.map((site) => (
             <SwiperSlide key={site.id}>
@@ -62,6 +80,11 @@ const UsefulSites = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+        <div className="swiper-controller">
+          <button className="swiper-button swiper-button__right">
+            <SliderIcon />
+          </button>
+        </div>
       </div>
     </div>
   );

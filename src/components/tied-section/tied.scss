@@ -6,7 +6,11 @@
 
 .useful-sites{
 
-    &__slider{}
+    &__slider{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
 
     &__swiper.swiper{
         padding: 19px 30px;
@@ -47,5 +51,33 @@
         margin: 0;
         font-size: 14px;
         line-height: 19px;
+    }
+}
+
+.swiper-button{
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    color: #fff;
+    background-color: #74cb49;
+    border-radius: 100%;
+    border: 1px solid transparent;
+    outline: none;
+
+    &-disabled{
+        opacity: .35;
+        cursor: default;
+    }
+
+    &__left{
+        transform: rotate(180deg);
+    }
+
+    svg{
+        width: 18px;
+        stroke-width: 2.5;
     }
 }
