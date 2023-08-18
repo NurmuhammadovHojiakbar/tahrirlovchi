@@ -65,6 +65,7 @@ const UsefulSites = () => {
             delay: 3500,
             disableOnInteraction: false,
           }}
+          rewind={true}
         >
           {sites.map((site) => (
             <SwiperSlide key={site.id}>
