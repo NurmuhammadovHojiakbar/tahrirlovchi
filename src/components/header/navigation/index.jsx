@@ -5,7 +5,7 @@ const Navigation = () => {
   const links = [
     {
       id: 1,
-      path: "/lotin-kirill",
+      path: "/",
       title: "Lotin-Kirill",
       icon: <TranslateIcon />,
     },
