@@ -1,11 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import PropTypes from "prop-types";
 
-Page.propTypes = {
-  title: PropTypes.string,
-  children: PropTypes.node,
-};
-
 const Page = ({ title, children }) => {
   return (
     <>
@@ -15,6 +10,11 @@ const Page = ({ title, children }) => {
       {children}
     </>
   );
+};
+
+Page.propTypes = {
+  title: PropTypes.string,
+  children: PropTypes.node,
 };
 
 export default Page;
