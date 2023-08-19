@@ -1,0 +1,117 @@
+.services-widget {
+    padding: 27px 25px 30px;
+    border-radius: 16px;
+    background-color: #eeffef;
+}
+
+.services-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 20px;
+
+    &__lang{
+        background-color: #ffece9;
+        border: 1px solid #f17c6d;
+        border-radius: 10px;
+    }
+
+    &__text{
+        cursor: pointer;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 500;
+        border-radius: 10px;
+        display: inline-block;
+        padding: 10px 25px;
+        color: #f17c6d;
+    }
+
+    &__input:checked ~ &__text{
+        color: #fff;
+        background-color: #f17c6d;
+    }
+
+    &__title{
+        margin: 0;
+        color: #888888;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 600;
+    }
+}
+
+.copy-button{
+    padding: 13px 53px;
+    color: #fff;
+    background-color: #49cb81;
+    border-radius: 10px;
+    border: 1px solid #49cb81;
+    outline: none;
+    transition: 0.3s ease;
+
+    &:hover{
+        background-color: #fff;
+        color: #49cb81;
+    }
+
+    &:active{
+        transform: scale(0.9);
+    }
+}
+
+.services-input{
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 1px solid #abd89f;
+    background-color: #fff;
+    outline-color: #49cb81;
+}
+
+.num-to-words{
+    margin-bottom: 16px;
+
+    &__label{
+        display: flex;
+        border-radius: 10px;
+        background-color: #fff;
+        border: 1px solid #abd89f;
+        margin-bottom: 20px;
+    }
+
+    &__input{
+        width: 100%;
+        border: none;
+        outline: none;
+    }
+
+    &__textarea{
+        width: 100%;
+        resize: none;
+        margin-bottom: 20px;
+    }
+
+    &__wrapper{
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+.files-label{
+    display: flex;
+    align-items: center;
+    padding: 12px 53px;
+    border-radius: 10px;
+    color: #fff;
+
+    &__file{
+        background-color: #49cb81;
+    }
+    &__word{
+        background-color: #49cb81;
+    }
+    &__excel{
+        background-color: #49cb81;
+    }
+}

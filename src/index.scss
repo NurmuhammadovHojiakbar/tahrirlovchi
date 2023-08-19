@@ -117,6 +117,11 @@ button{
   outline: none;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
 .container{
   max-width: 1194px;
   width: 100%;
@@ -132,4 +137,14 @@ button{
   line-height: 39px;
   font-weight: 600;
   color: #78CB49;
+}
+
+.visually-hidden{
+  clip: rect(0 0 0 0); 
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap; 
+  width: 1px;
 }
