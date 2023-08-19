@@ -4,6 +4,23 @@
     background-color: #eeffef;
 }
 
+.services-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    &__left{
+        flex-basis: 49%;
+        flex-grow: 1;
+    }
+
+    &__right{
+        display: flex;
+        flex-basis: 49%;
+        flex-grow: 1;
+    }
+}
+
 .services-header{
     display: flex;
     justify-content: space-between;
@@ -101,7 +118,7 @@
 
 .translate-files{
     &__list{
-        display: flex;
+        display: inline-flex;
         flex-wrap: wrap;
         gap: 17px;
     }
@@ -109,7 +126,7 @@
 
 .files-label{
     flex-grow: 1;
-        flex-basis: 30%;
+    flex-basis: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -131,5 +148,43 @@
     &__excel{
         border-color: #227547;
         background-color: #227547;
+    }
+}
+
+.image-to-text{
+    flex-grow: 1;
+}
+
+.upload-form{
+    margin-bottom: 20px;
+
+    &__label{
+        display: block;
+        background-color: #fff;
+        border: 2px dashed #abd89f;
+        padding: 42px 25px;
+        text-align: center;
+        border-radius: 10px;
+    }
+
+    &__label.active{
+        border-style: solid;
+        background-color: rgba(34, 117, 71, 0.1);
+    }
+
+    .upload-button{
+        border: none;
+        outline: none;
+        background-color: transparent;
+        color: #227547;
+        font-size: 14px;
+        line-height: 28px;
+        font-weight: 600;
+    }
+
+    p{
+        font-size: 14px;
+        line-height: 28px;
+        color: rgba(30, 30, 30,0.4);
     }
 }
