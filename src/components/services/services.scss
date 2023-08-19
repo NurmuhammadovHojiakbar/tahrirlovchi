@@ -12,6 +12,7 @@
     margin-bottom: 20px;
 
     &__lang{
+        display: flex;
         background-color: #ffece9;
         border: 1px solid #f17c6d;
         border-radius: 10px;
@@ -98,20 +99,37 @@
     }
 }
 
+.translate-files{
+    &__list{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 17px;
+    }
+}
+
 .files-label{
+    flex-grow: 1;
+        flex-basis: 30%;
     display: flex;
+    justify-content: center;
     align-items: center;
+    gap: 10px;
     padding: 12px 53px;
     border-radius: 10px;
     color: #fff;
+    border: 1px solid;
+    cursor: pointer;
 
     &__file{
+        border: #49cb81;
         background-color: #49cb81;
     }
     &__word{
-        background-color: #49cb81;
+        border-color: #497BCB;
+        background-color: #497BCB;
     }
     &__excel{
-        background-color: #49cb81;
+        border-color: #227547;
+        background-color: #227547;
     }
 }
