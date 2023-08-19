@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import LogoImg from "../../assets/images/site-logo.png";
-import "./header.scss";
 import Navigation from "./navigation";
 import Controller from "./controller";
+import "./header.scss";
 
 const Header = () => {
   return (

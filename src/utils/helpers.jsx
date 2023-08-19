@@ -15,3 +15,11 @@ export const copyToClipboard = (text) => {
     // });
   }
 };
+
+export const queryMaker = (query) =>
+  Object.fromEntries(
+    (query || "")
+      .replace("?", "")
+      .split("&")
+      .map((el) => el.split("="))
+  );

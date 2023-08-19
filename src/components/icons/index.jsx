@@ -593,6 +593,47 @@ export function ExcelIcon(...props) {
     </svg>
   );
 }
+export function BigSearchIcon(...props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18.977"
+      height="18.978"
+      viewBox="0 0 18.977 18.978"
+      {...props}
+    >
+      <g
+        id="Icon_feather-search"
+        data-name="Icon feather-search"
+        transform="translate(1 1)"
+      >
+        <path
+          id="Path_15380"
+          data-name="Path 15380"
+          d="M19.223,11.861A7.361,7.361,0,1,1,11.861,4.5,7.361,7.361,0,0,1,19.223,11.861Z"
+          transform="translate(-4.5 -4.5)"
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+        />
+        <path
+          id="Path_15381"
+          data-name="Path 15381"
+          d="M28.978,28.978l-4-4"
+          transform="translate(-12.415 -12.415)"
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+        />
+      </g>
+    </svg>
+  );
+}
+
 export function Icon(...props) {
   return (
     <svg
