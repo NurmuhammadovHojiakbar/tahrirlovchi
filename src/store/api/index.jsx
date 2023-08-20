@@ -7,8 +7,8 @@ export const translatorApi = createApi({
     getAllDictionary: builder.query({
       query: ({ letter, page }) =>
         `/dictionary/by-letter/?q=${letter || "a"}&offset=${
-          ((page || 1) - 1) * 50
-        }`,
+          ((page || 1) - 1) * 100
+        }&limit=100`,
     }),
     getWord: builder.query({
       query: (word) => `/dictionary/word/?q=${word}`,

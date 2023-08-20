@@ -1,0 +1,51 @@
+.pagination{
+    &-list{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    
+    &-button{
+        padding: 5px 13px;
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 22px;
+        color: #070A0E;
+        border: 1px solid #497bcb;
+        outline: none;
+        background-color: #fff;
+
+        &:active{
+            transform: scale(0.9);
+        }
+
+        &:disabled{
+            border-color: #070A0E;
+            opacity: 0.2;
+            transform: none;
+        }
+
+        &__left, &__right{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        svg{
+            width: 20px;
+        }
+
+        &__left svg{
+            transform: rotate(180deg);
+        }
+    }
+    
+    &-button.active{
+        color: #fff;
+        background: #497bcb;
+    }
+    
+    
+}
+

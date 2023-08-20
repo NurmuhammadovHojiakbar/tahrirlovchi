@@ -23,3 +23,10 @@ export const queryMaker = (query) =>
       .split("&")
       .map((el) => el.split("="))
   );
+
+export const queryStringify = (query, changings = {}) => {
+  const newQuery = { ...query, ...changings };
+  return Object.entries(newQuery)
+    .map((el) => el[0] && `${el[0]}=${el[1]}`)
+    .join("&");
+};
