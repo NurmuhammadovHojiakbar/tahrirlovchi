@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useGetWordQuery } from "../../store/api";
-import "./word.scss";
-import translate from "../../utils/Translator";
 import { CopyButton, SaveButton, ShareButton } from "../controllers";
+import translate from "../../utils/Translator";
+import { copyToClipboard, saveAsFile, shareHandler } from "../../utils/helpers";
+import "./word.scss";
 
 const WordDescription = () => {
   const [isLatin, setIsLatin] = useState(true);
@@ -12,6 +13,15 @@ const WordDescription = () => {
   const { data } = useGetWordQuery(wordParam);
 
   const word = (data || [])[0];
+  const latinDesc = word?.description || "";
+  const cyrillicDesc = useMemo(() => {
+    return (
+      word?.description
+        .split(" ")
+        .map((el) => translate(el, false))
+        .join(" ") || ""
+    );
+  }, [word]);
 
   const onChangeHandler = (bool) => {
     setIsLatin(bool);
@@ -52,19 +62,20 @@ const WordDescription = () => {
           <div
             className="word-wrapper__description"
             dangerouslySetInnerHTML={{
-              __html: isLatin
-                ? word?.description
-                : word?.description
-                    .split(" ")
-                    .map((el) => translate(el, isLatin))
-                    .join(" "),
+              __html: isLatin ? latinDesc : cyrillicDesc,
             }}
           ></div>
         </div>
         <footer className="word-wrapper__footer">
-          <CopyButton />
-          <ShareButton />
-          <SaveButton />
+          <CopyButton
+            onClick={() => copyToClipboard(isLatin ? latinDesc : cyrillicDesc)}
+          />
+          <ShareButton
+            onClick={() => shareHandler(isLatin ? latinDesc : cyrillicDesc)}
+          />
+          <SaveButton
+            onClick={() => saveAsFile(isLatin ? latinDesc : cyrillicDesc)}
+          />
         </footer>
       </div>
     </div>
