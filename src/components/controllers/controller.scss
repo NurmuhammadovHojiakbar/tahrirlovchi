@@ -1,0 +1,18 @@
+.controller-button{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 100%;
+    background-color: #eef2ff;
+    transition: 0.3s ease;
+
+
+    &:hover{
+        background-color: #497bcb;
+        color: #fff;
+    }
+}

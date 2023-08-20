@@ -634,6 +634,113 @@ export function BigSearchIcon(...props) {
   );
 }
 
+export function CopyIcon(...props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="17.3"
+      height="21.3"
+      viewBox="0 0 17.3 21.3"
+      {...props}
+    >
+      <g id="Group" transform="translate(0.65 0.65)">
+        <path
+          id="Vector"
+          d="M0,2V14a2,2,0,0,0,2,2h8a2,2,0,0,0,2-2V5.242a2,2,0,0,0-.6-1.43L8.083.57A2,2,0,0,0,6.685,0H2A2,2,0,0,0,0,2Z"
+          transform="translate(4)"
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.3"
+        />
+        <path
+          id="Vector-2"
+          data-name="Vector"
+          d="M12,11v2a2,2,0,0,1-2,2H2a2,2,0,0,1-2-2V2A2,2,0,0,1,2,0H4"
+          transform="translate(0 5)"
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.3"
+        />
+      </g>
+    </svg>
+  );
+}
+export function SaveIcon(...props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18.66"
+      height="16.78"
+      viewBox="0 0 18.66 16.78"
+      {...props}
+    >
+      <g id="Frame" transform="translate(0)">
+        <rect
+          id="Frame-2"
+          data-name="Frame"
+          width="18.66"
+          height="16.78"
+          fill="none"
+        />
+        <path
+          id="Vector"
+          d="M17.46,0V1.54a2.006,2.006,0,0,1-2,2H2a2.006,2.006,0,0,1-2-2V0"
+          transform="translate(0.6 12.63)"
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.2"
+        />
+        <path
+          id="Vector-2"
+          data-name="Vector"
+          d="M8.28,0,4.14,4.15,0,0"
+          transform="translate(5.19 7.52)"
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.2"
+        />
+        <path
+          id="Vector-3"
+          data-name="Vector"
+          d="M0,11.07V0"
+          transform="translate(9.33 0.6)"
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.2"
+        />
+      </g>
+    </svg>
+  );
+}
+export function ShareIcon(...props) {
+  return (
+    <svg
+      width="24px"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z"
+      ></path>
+    </svg>
+  );
+}
 export function Icon(...props) {
   return (
     <svg
