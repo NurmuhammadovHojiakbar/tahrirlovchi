@@ -87,7 +87,7 @@ const ImageToText = () => {
   return (
     <div className="services-widget image-to-text">
       <ServicesHeader
-        title={"Rasmdan matnni o'qib olish"}
+        title={"Rasmdan matnni o‘qib olish"}
         isLatin={isLatin}
         setIsLatin={setIsLatin}
       />

@@ -6,7 +6,7 @@ const AboutApp = () => {
     <div className="container">
       <div className="about-app">
         <header className="about-app__header">
-          <h2 className="about-app__title">O&apos;zbek tili imlo dasturi</h2>
+          <h2 className="about-app__title">O‘zbek tili imlo dasturi</h2>
         </header>
         <section className="about-app__info">
           <p className="about-app__text">
@@ -36,6 +36,34 @@ const AboutApp = () => {
             tilini rivojlantirish jamg‘armasi mablag‘lari hisobidan amalga
             oshirilgan.
           </p>
+          <br />
+          <br />
+          <p className="about-app__text">
+            Loyiha quyidagi imkoniyatlarni taqdim qiladi:
+          </p>
+          <ul className="about-app__list">
+            <li className="about-app__item">
+              Matn va so‘zlarni lotin-krill, kirill-lotin garafikasiga onlayn,
+              tez va bexato o‘girish;
+            </li>
+            <li className="about-app__item">
+              Matn va so‘zlarni yozilish jihatdan to‘g‘liginini tekshirish;
+            </li>
+            <li className="about-app__item">
+              Barcha yo‘nalishlardagi izohli lug‘atlar bazasi;
+            </li>
+            <li className="about-app__item">
+              Sonlarni lotin hamda kirill garafikasida tezkorlik bilan so‘zlarga
+              aylantirish;
+            </li>
+            <li className="about-app__item">
+              Microsoft word hamda microsoft excel fayllarni lotin va kirill
+              garafikasida tezkorlik bilan o‘girish;
+            </li>
+            <li className="about-app__item">
+              Rasmlardan matnni ajratib olish.
+            </li>
+          </ul>
         </section>
       </div>
     </div>

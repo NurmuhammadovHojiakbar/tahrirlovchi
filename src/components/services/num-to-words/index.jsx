@@ -42,7 +42,7 @@ const NumToWords = () => {
   return (
     <div className="services-widget num-to-words">
       <ServicesHeader
-        title={"Raqamni matnga o'girish"}
+        title={"Raqamni matnga o‘girish"}
         isLatin={isLatin}
         setIsLatin={setIsLatin}
       />

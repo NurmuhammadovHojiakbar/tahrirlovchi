@@ -23,10 +23,10 @@ const Contact = () => {
   ];
   return (
     <div className="contact">
-      <h2 className="site-title contact-title">Biz bilan bog&apos;laning</h2>
+      <h2 className="site-title contact-title">Biz bilan bog‘laning</h2>
       <p className="contact-desc">
         Savollaringiz bormi yoki xizmatdan foydalanmoqchimisiz? <br />
-        So&apos;rov qoldiring va biz tez orada siz bilan bog&apos;lanamiz
+        So‘rov qoldiring va biz tez orada siz bilan bog‘lanamiz
       </p>
 
       <div className="contact-wrapper">

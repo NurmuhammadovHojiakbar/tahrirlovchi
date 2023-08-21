@@ -33,4 +33,16 @@
         line-height: 28px;
         color: #497bcb;
     }
+
+    &__list{
+        list-style-type: disc;
+        padding-left: 35px;
+    }
+
+    &__item{
+        font-size: 16px;
+        line-height: 28px;
+        color: #1e1e1e;
+        margin: 0;
+    }
 }
