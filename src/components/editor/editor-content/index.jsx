@@ -1,11 +1,21 @@
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Editor, convertToRaw } from "draft-js";
+import { Editor, EditorState, convertToRaw } from "draft-js";
 import PropTypes from "prop-types";
 import EditorHeader from "../editor-header";
-import { CopyButton, SaveButton, ShareButton } from "../../controllers";
+import {
+  ClearButton,
+  CopyButton,
+  SaveButton,
+  ShareButton,
+} from "../../controllers";
 import { updateEditor } from "../../../store/reducer/editor-slice";
 import translate from "../../../utils/Translator";
+import {
+  copyToClipboard,
+  saveAsFile,
+  shareHandler,
+} from "../../../utils/helpers";
 
 const EditorContent = ({ pos }) => {
   const editorRef = useRef(null);
@@ -43,14 +53,14 @@ const EditorContent = ({ pos }) => {
       <div className="editor-line"></div>
       <div className="editor-content__wrapper">
         {pos ? (
-          <div className="editable-content__result">
+          <div className="editor-content__result">
             {translated?.map((el, indx) =>
               el === "" ? <br key={indx} /> : <p key={indx}>{el}</p>
             )}
           </div>
         ) : (
           <div
-            className="editable-content__context"
+            className="editor-content__context"
             onClick={() => editorRef.current.focus()}
           >
             <Editor
@@ -62,9 +72,36 @@ const EditorContent = ({ pos }) => {
         )}
       </div>
       <footer className={`editor-footer ${pos ? "right" : ""}`}>
-        <CopyButton />
-        <SaveButton />
-        <ShareButton />
+        <CopyButton
+          onClick={() =>
+            copyToClipboard(
+              pos
+                ? translated.join(" ")
+                : editor.getCurrentContent().getPlainText()
+            )
+          }
+        />
+        <SaveButton
+          onClick={() =>
+            saveAsFile(
+              pos
+                ? translated.join(" ")
+                : editor.getCurrentContent().getPlainText()
+            )
+          }
+        />
+        <ShareButton
+          onClick={() =>
+            shareHandler(
+              pos
+                ? translated.join(" ")
+                : editor.getCurrentContent().getPlainText()
+            )
+          }
+        />
+        <ClearButton
+          onClick={() => handleEditorChange(EditorState.createEmpty())}
+        />
       </footer>
     </div>
   );
