@@ -28,12 +28,16 @@ export const translatorApi = createApi({
         method: "POST",
       }),
     }),
+    getWordsOnSearch: builder.query({
+      query: (word) => `/dictionary/search/?q=${word}`,
+    }),
   }),
 });
 
 export const {
   useGetAllDictionaryQuery,
   useGetWordQuery,
+  useGetWordsOnSearchQuery,
   usePostFileMutation,
   usePostImageMutation,
 } = translatorApi;
