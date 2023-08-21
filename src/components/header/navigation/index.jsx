@@ -12,7 +12,7 @@ const Navigation = () => {
     {
       id: 2,
       path: "/lugat",
-      title: "Lug’at",
+      title: "Lug‘at",
       icon: <DictIcon />,
     },
     {

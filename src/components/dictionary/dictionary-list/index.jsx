@@ -59,13 +59,13 @@ const DictionaryList = () => {
   return (
     <div className="dictionary-wrapper">
       <header className="dictionary-wrapper__header">
-        <h2 className="dictionary-wrapper__title">So’zni yozing</h2>
+        <h2 className="dictionary-wrapper__title">So‘zni yozing</h2>
         <div className="dictionary-wrapper__search">
           <label className="dictionary-wrapper__label">
             <input
               className="dictionary-wrapper__input"
               type="text"
-              placeholder="So’zni yozing"
+              placeholder="So‘zni yozing"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />

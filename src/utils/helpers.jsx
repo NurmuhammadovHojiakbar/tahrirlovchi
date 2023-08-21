@@ -1,6 +1,7 @@
 // import Swal from "sweetalert2";
 
 import { CompositeDecorator } from "draft-js";
+import SearchHighlight from "../components/highlight";
 
 export const copyToClipboard = (text) => {
   try {
@@ -66,7 +67,7 @@ export const findWithRegex = (regex, contentBlock, callback) => {
   }
 };
 
-export const generateDecorator = (highlightTermsList, component) => {
+export const generateDecorator = (highlightTermsList) => {
   const decList = highlightTermsList.map((item) => {
     const regex = new RegExp(item?.word, "g");
     return {
@@ -75,7 +76,7 @@ export const generateDecorator = (highlightTermsList, component) => {
           findWithRegex(regex, contentBlock, callback);
         }
       },
-      component,
+      component: SearchHighlight,
     };
   });
   return new CompositeDecorator(decList);

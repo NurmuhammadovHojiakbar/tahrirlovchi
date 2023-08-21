@@ -9,6 +9,7 @@ const initialState = {
     x: 0,
     y: 0,
   },
+  isSuggestions: false,
 };
 
 const editorSlice = createSlice({
