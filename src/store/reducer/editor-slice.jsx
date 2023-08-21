@@ -4,6 +4,11 @@ import { EditorState } from "draft-js";
 const initialState = {
   content: EditorState.createEmpty(),
   isLatin: true,
+  errorWords: [],
+  mousePosition: {
+    x: 0,
+    y: 0,
+  },
 };
 
 const editorSlice = createSlice({
@@ -16,8 +21,12 @@ const editorSlice = createSlice({
     updateLang: (state, action) => {
       state.isLatin = action.payload;
     },
+    updateErrorWords: (state, action) => {
+      state.errorWords = action.payload;
+    },
   },
 });
 
-export const { updateLang, updateEditor } = editorSlice.actions;
+export const { updateLang, updateEditor, updateErrorWords } =
+  editorSlice.actions;
 export default editorSlice.reducer;

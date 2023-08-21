@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import LogoImg from "../../assets/images/site-logo.png";
 import Navigation from "./navigation";
-import Controller from "./controller";
+// import Controller from "./controller";
 import "./header.scss";
 
 const Header = () => {
@@ -22,7 +22,7 @@ const Header = () => {
         <nav className="site-nav">
           <Navigation />
         </nav>
-        <Controller />
+        {/* <Controller /> */}
       </div>
     </header>
   );

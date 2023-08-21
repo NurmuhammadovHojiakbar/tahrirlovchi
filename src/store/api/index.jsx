@@ -4,6 +4,7 @@ export const translatorApi = createApi({
   reducerPath: "translatorApi",
   baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_BASE_URL }),
   endpoints: (builder) => ({
+    // Words
     getAllDictionary: builder.query({
       query: ({ letter, page }) =>
         `/dictionary/by-letter/?q=${letter || "a"}&offset=${
@@ -13,6 +14,10 @@ export const translatorApi = createApi({
     getWord: builder.query({
       query: (word) => `/dictionary/word/?q=${word}`,
     }),
+    getWordsOnSearch: builder.query({
+      query: (word) => `/dictionary/search/?q=${word}`,
+    }),
+    // Files
     postFile: builder.mutation({
       query: (file) => ({
         url: "/file/convert-file/",
@@ -28,8 +33,13 @@ export const translatorApi = createApi({
         method: "POST",
       }),
     }),
-    getWordsOnSearch: builder.query({
-      query: (word) => `/dictionary/search/?q=${word}`,
+    // Translator
+    checkContent: builder.mutation({
+      query: (content) => ({
+        url: "/spell-check/",
+        method: "POST",
+        body: content,
+      }),
     }),
   }),
 });
@@ -38,6 +48,7 @@ export const {
   useGetAllDictionaryQuery,
   useGetWordQuery,
   useGetWordsOnSearchQuery,
-  usePostFileMutation,
+  usePostFileMutation,  
   usePostImageMutation,
+  useCheckContentMutation,
 } = translatorApi;

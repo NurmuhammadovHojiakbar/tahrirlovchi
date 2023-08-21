@@ -4,9 +4,9 @@ import CompanyIcon from "../../assets/images/company-logo.png";
 import { Link } from "react-router-dom";
 import {
   FacebookIcon,
-  InstagramIcon,
+  // InstagramIcon,
   TelegramIcon,
-  YoutubeIcon,
+  // YoutubeIcon,
 } from "../icons";
 
 const Footer = () => {
@@ -14,23 +14,23 @@ const Footer = () => {
     {
       id: 1,
       icon: <FacebookIcon />,
-      path: "/",
+      path: "https://www.facebook.com/groups/2740806312635791",
     },
     {
       id: 2,
       icon: <TelegramIcon />,
-      path: "/",
+      path: "https://t.me/dtrdep",
     },
-    {
-      id: 3,
-      icon: <InstagramIcon />,
-      path: "/",
-    },
-    {
-      id: 4,
-      icon: <YoutubeIcon />,
-      path: "/",
-    },
+    // {
+    //   id: 3,
+    //   icon: <InstagramIcon />,
+    //   path: "/",
+    // },
+    // {
+    //   id: 4,
+    //   icon: <YoutubeIcon />,
+    //   path: "/",
+    // },
   ];
 
   return (

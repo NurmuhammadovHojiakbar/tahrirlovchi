@@ -6,7 +6,8 @@ import { translatorApi } from "./api";
 
 const store = configureStore({
   reducer: rootReducer,
-  middleware: (gm) => gm().concat(logger, translatorApi.middleware),
+  middleware: (gm) =>
+    gm({ serializableCheck: false }).concat(logger, translatorApi.middleware),
   devTools: true,
 });
 

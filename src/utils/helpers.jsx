@@ -1,5 +1,7 @@
 // import Swal from "sweetalert2";
 
+import { CompositeDecorator } from "draft-js";
+
 export const copyToClipboard = (text) => {
   try {
     navigator.clipboard.writeText(text);
@@ -52,4 +54,29 @@ export const queryStringify = (query, changings = {}) => {
   return Object.entries(newQuery)
     .map((el) => el[0] && `${el[0]}=${el[1]}`)
     .join("&");
+};
+
+export const findWithRegex = (regex, contentBlock, callback) => {
+  const text = contentBlock.getText();
+  let matchArr, start, end;
+  while ((matchArr = regex.exec(text)) !== null) {
+    start = matchArr.index;
+    end = start + matchArr[0].length;
+    callback(start, end);
+  }
+};
+
+export const generateDecorator = (highlightTermsList, component) => {
+  const decList = highlightTermsList.map((item) => {
+    const regex = new RegExp(item?.word, "g");
+    return {
+      strategy: (contentBlock, callback) => {
+        if (item !== "") {
+          findWithRegex(regex, contentBlock, callback);
+        }
+      },
+      component,
+    };
+  });
+  return new CompositeDecorator(decList);
 };

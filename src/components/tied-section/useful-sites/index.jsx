@@ -1,43 +1,51 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
-import ZiyoNetImg from "../../../assets/images/ziyonet.png";
-import ExaridImg from "../../../assets/images/exarid.png";
-import DxaridImg from "../../../assets/images/dxarid.png";
-import MustaqillikImg from "../../../assets/images/mustaqillik.png";
-import UmailImg from "../../../assets/images/umail.png";
+import GerbImg from "../../../assets/images/gerb.png";
+import GovUzImg from "../../../assets/images/gov-uz.svg";
+import TsullImg from "../../../assets/images/tsull.png";
+import TilAdabiyotImg from "../../../assets/images/til-adabiyot.png";
 import { SliderIcon } from "../../icons";
+import { Link } from "react-router-dom";
 
 const UsefulSites = () => {
   const sites = [
     {
       id: 1,
-      img: ZiyoNetImg,
-      title: "Ta'lim portali",
+      img: GerbImg,
+      title: "O‘zbekiston Respublikasi Prezidentining rasmiy veb-sayti",
+      path: "https://president.uz/uz",
     },
     {
       id: 2,
-      img: ExaridImg,
-      title: "Korporativ xaridlar savdo tizimi",
+      img: GerbImg,
+      title: "O‘zbekiston Respublikasi Hukumat portali",
+      path: "https://gov.uz/uz",
     },
     {
       id: 3,
-      img: DxaridImg,
-      title: "Davlat xaridlari savdo tizimi",
+      img: GovUzImg,
+      title: "Yagona interaktiv davlat xizmatlari portali",
+      path: "https://my.gov.uz/oz",
     },
     {
       id: 4,
-      img: MustaqillikImg,
-      title: "Ta'lim portali",
+      img: TilAdabiyotImg,
+      title: "Alisher Navoiy nomidagi ToshDO‘TAU huzuridagi PKQTMOTM sayti",
+      path: "https://tiladabiyot-tm.uz/",
     },
     {
       id: 5,
-      img: UmailImg,
-      title: "Ta'lim portali",
+      img: GerbImg,
+      title:
+        "O‘zbekiston Respublikasi prezidenti Shavkat Miromonovich Mirziyoyevning virtual qabulxonasi",
+      path: "https://pm.gov.uz/oz#/",
     },
     {
       id: 6,
-      img: ZiyoNetImg,
-      title: "Ta'lim portali",
+      img: TsullImg,
+      title:
+        "Alisher Navoiy nomidagi Toshkent davlat o‘zbek tili va adabiyoti universiteti sayti",
+      path: "https://www.tsuull.uz/",
     },
   ];
 
@@ -69,15 +77,17 @@ const UsefulSites = () => {
         >
           {sites.map((site) => (
             <SwiperSlide key={site.id}>
-              <div className="swiper-item">
-                <img
-                  className="swiper-item__img"
-                  src={site.img}
-                  alt={site.title}
-                />
-                <div className="swiper-item__line"></div>
-                <p className="swiper-item__text">{site.title}</p>
-              </div>
+              <Link className="swiper-link" to={site.path} target="_blank">
+                <div className="swiper-item">
+                  <img
+                    className="swiper-item__img"
+                    src={site.img}
+                    alt={site.title}
+                  />
+                  <div className="swiper-item__line"></div>
+                  <p className="swiper-item__text">{site.title}</p>
+                </div>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>

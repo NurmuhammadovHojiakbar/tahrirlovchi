@@ -57,8 +57,12 @@
         height: auto;
     }
 }
-
+.swiper-link{
+    display: flex;
+    color: #1e1e1e;
+}
 .swiper-item{
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
