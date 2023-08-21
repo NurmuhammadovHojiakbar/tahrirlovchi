@@ -13,7 +13,27 @@ export const translatorApi = createApi({
     getWord: builder.query({
       query: (word) => `/dictionary/word/?q=${word}`,
     }),
+    postFile: builder.mutation({
+      query: (file) => ({
+        url: "/file/convert-file/",
+        method: "POST",
+        body: file,
+        responseHandler: (res) => res.blob(),
+      }),
+    }),
+    postImage: builder.mutation({
+      query: (file) => ({
+        url: "/file/convert-image/",
+        body: file,
+        method: "POST",
+      }),
+    }),
   }),
 });
 
-export const { useGetAllDictionaryQuery, useGetWordQuery } = translatorApi;
+export const {
+  useGetAllDictionaryQuery,
+  useGetWordQuery,
+  usePostFileMutation,
+  usePostImageMutation,
+} = translatorApi;

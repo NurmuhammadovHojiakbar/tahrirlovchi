@@ -4,12 +4,54 @@ import CopyButton from "../copy-button";
 import { copyToClipboard } from "../../../utils/helpers";
 import translate from "../../../utils/Translator";
 import UploadImage from "../../../assets/images/upload-file.png";
+import { usePostImageMutation } from "../../../store/api";
+import Swal from "sweetalert2";
 
 const ImageToText = () => {
   const [isLatin, setIsLatin] = useState(true);
-  const [result, setResult] = useState("");
   const [dragActive, setDragActive] = useState(false);
+  const [result, setResult] = useState("");
   const inputRef = useRef();
+  const [mutator] = usePostImageMutation();
+
+  const uploadHandler = async (formData, e) => {
+    try {
+      const res = await mutator(formData);
+      setResult(
+        res.data.text
+          .split(" ")
+          .map((word) => translate(word, isLatin))
+          .join(" ")
+      );
+    } catch (err) {
+      if (err.response.data.detail) {
+        Swal.fire({
+          title: "Kutilmagan xatolik!",
+          text: "Bunday kengaytmalik fayl qo‘llab quvvatlanmaydi. Davom ettirishni xohlaysizmi",
+          icon: "error",
+          confirmButtonText: "Ha",
+        });
+        return;
+      }
+      Swal.fire({
+        title: "Kutilmagan xatolik!",
+        text: "Davom ettirishni xohlaysizmi",
+        icon: "error",
+        confirmButtonText: "Ha",
+      });
+    } finally {
+      e.target.value = null;
+    }
+  };
+
+  const uploadImage = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0];
+      const formData = new FormData();
+      formData.append("image", file);
+      uploadHandler(formData, e);
+    }
+  };
 
   const handleDrag = function (e) {
     e.preventDefault();
@@ -21,12 +63,15 @@ const ImageToText = () => {
     }
   };
 
-  const handleDrop = async (e) => {
+  const handleDrop = (e) => {
     e.preventDefault();
     e.stopPropagation();
     setDragActive(false);
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-      console.log(e.dataTransfer.files[0]);
+      const file = e.dataTransfer.files[0];
+      const formData = new FormData();
+      formData.append("image", file);
+      uploadHandler(formData, e);
     }
   };
 
@@ -60,6 +105,7 @@ const ImageToText = () => {
             className="visually-hidden upload-form__input"
             multiple={false}
             ref={inputRef}
+            onChange={uploadImage}
           />
           <div>
             <img
