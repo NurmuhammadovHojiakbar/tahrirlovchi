@@ -305,7 +305,7 @@ function kirillga(originalMessage) {
     }
   });
 
-  const linkReg = /(((https?:\/\/)|(www\.)|(mailto:))?[^\s]+[.][A-Za-z]+)/g;
+  const linkReg = /(((https?:\/\/)|(www\.)|(mailto:))[^\s]+[.][A-Za-z]+)/g;
   if (linkReg.test(originalMessage)) {
     return originalMessage;
   }

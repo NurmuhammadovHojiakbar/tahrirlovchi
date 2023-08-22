@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ClockIcon, MailIcon, PhoneIcon } from "../../icons";
 
 const Contact = () => {
@@ -7,12 +8,18 @@ const Contact = () => {
       title: "Telefon:",
       value: "+998(71) 123-45-67",
       icon: <PhoneIcon />,
+      props: {
+        to: "tel:+998711234567",
+      },
     },
     {
       id: 2,
       title: "E-mail:",
       value: "uztiljamgarma@exat.uz",
       icon: <MailIcon />,
+      props: {
+        to: "mailto:uztiljamgarma@exat.uz",
+      },
     },
     {
       id: 3,
@@ -56,7 +63,13 @@ const Contact = () => {
         <ul className="contact-list">
           {list.map((item) => (
             <li className="contact-item" key={item.id}>
-              <div className="contact-item__wrapper">{item.icon}</div>
+              {item.props ? (
+                <Link className="contact-item__wrapper" {...item.props}>
+                  {item.icon}
+                </Link>
+              ) : (
+                <div className="contact-item__wrapper">{item.icon}</div>
+              )}
               <div className="contact-item__text">
                 <h3 className="contact-item__title">{item.title}</h3>
                 <p className="contact-item__value">{item.value}</p>
