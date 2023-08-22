@@ -5,6 +5,29 @@
     flex-wrap: wrap;
     gap: 16px;
 
+    .button-container{
+        cursor: pointer;
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 58px;
+        height: 58px;
+        border: 2px solid #fff;
+        background: linear-gradient(to right top,#2bc764,#c0f8a9);
+        transform: translate(-50%,50%) rotate(45deg);
+    }
+    
+    &-button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+        background: linear-gradient(to right,#2bc764,#c0f8a9);
+        color: #fff;
+        transform: rotate(-45deg);
+    }
+
     &-content{
         flex-basis: 49%;
         flex-grow: 1;
