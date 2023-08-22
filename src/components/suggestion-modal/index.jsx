@@ -4,25 +4,32 @@ import "./suggestion.scss";
 import {
   replaceErrorWord,
   skipErrorWord,
+  updateIsSuggested,
 } from "../../store/reducer/editor-slice";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import useOnClickOutside from "../../hooks/useOnClickOutside";
 
 const SuggestionModal = () => {
   const [custom, setCustom] = useState("");
+  const ref = useRef(null);
+
   const {
     mousePosition: { x, y },
     suggestions,
   } = useSelector((store) => store.editorState);
   const dispatch = useDispatch();
-  const { width, height } = useWindowSize();
+
+  const { width } = useWindowSize();
+  useOnClickOutside(ref, () => dispatch(updateIsSuggested(false)));
 
   return (
     <div
       className="suggestions"
       style={{
-        top: y + 180 >= height ? y - 100 : y + 15,
+        top: y,
         left: x + 180 >= width ? x - 120 : x + 15,
       }}
+      ref={ref}
     >
       <ul className="suggestions-list">
         {suggestions?.suggestions?.map((el, inx) => (

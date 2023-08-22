@@ -27,9 +27,11 @@ const editorSlice = createSlice({
     updateErrorWords: (state, action) => {
       state.errorWords = action.payload;
     },
+    updateIsSuggested: (state, action) => {
+      state.isSuggested = action.payload;
+    },
     updateSugestions: (state, action) => {
       const { position, text } = action.payload;
-      console.log("Hello world from action");
       return {
         ...state,
         mousePosition: {
@@ -97,5 +99,6 @@ export const {
   updateSugestions,
   skipErrorWord,
   replaceErrorWord,
+  updateIsSuggested,
 } = editorSlice.actions;
 export default editorSlice.reducer;

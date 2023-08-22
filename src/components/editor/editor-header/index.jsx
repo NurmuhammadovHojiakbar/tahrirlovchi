@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import { EditorState } from "draft-js";
@@ -11,12 +11,15 @@ import { useCheckContentMutation } from "../../../store/api";
 import translate from "../../../utils/Translator";
 import Swal from "sweetalert2";
 import { generateDecorator } from "../../../utils/helpers";
+import useOnClickOutside from "../../../hooks/useOnClickOutside";
 
 const EditorHeader = ({ pos }) => {
   const [open, setOpen] = useState(false);
+  const langRef = useRef(null);
   const { isLatin, content } = useSelector((store) => store.editorState);
   const dispatch = useDispatch();
   const [mutator] = useCheckContentMutation();
+  useOnClickOutside(langRef, () => setOpen(false));
 
   const checkHandler = async (words) => {
     try {
@@ -76,7 +79,7 @@ const EditorHeader = ({ pos }) => {
   return (
     <header className="editor-header">
       <p className="editor-header__text">Tilni tanlang</p>
-      <div className="word-wrapper__lang">
+      <div className="word-wrapper__lang" ref={langRef}>
         <button
           className="word-wrapper__lang-button word-wrapper__lang-current"
           onClick={() => setOpen(!open)}
