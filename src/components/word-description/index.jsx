@@ -1,14 +1,18 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useGetWordQuery } from "../../store/api";
 import { CopyButton, SaveButton, ShareButton } from "../controllers";
 import translate from "../../utils/Translator";
 import { copyToClipboard, saveAsFile, shareHandler } from "../../utils/helpers";
 import "./word.scss";
+import useOnClickOutside from "../../hooks/useOnClickOutside";
+import Search from "../search";
 
 const WordDescription = () => {
   const [isLatin, setIsLatin] = useState(true);
   const [open, setOpen] = useState(false);
+  const langRef = useRef();
+  useOnClickOutside(langRef, () => setOpen(false));
   const { word: wordParam } = useParams();
   const { data } = useGetWordQuery(wordParam);
 
@@ -32,8 +36,10 @@ const WordDescription = () => {
     <div className="container word-container">
       <div className="dictionary-wrapper word-wrapper">
         <header className="word-wrapper__header">
-          <div className="word-wrapper__word">{word?.title}</div>
-          <div className="word-wrapper__lang">
+          <div className="word-wrapper__word">
+            {isLatin ? word?.title : translate(word?.title || "")}
+          </div>
+          <div className="word-wrapper__lang" ref={langRef}>
             <button
               className="word-wrapper__lang-button word-wrapper__lang-current"
               onClick={() => setOpen(!open)}
@@ -57,6 +63,7 @@ const WordDescription = () => {
               </div>
             )}
           </div>
+          <Search />
         </header>
         <div className="word-wrapper__context">
           <div

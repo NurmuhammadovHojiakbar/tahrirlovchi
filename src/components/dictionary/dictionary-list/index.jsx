@@ -1,23 +1,16 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import {
-  useGetAllDictionaryQuery,
-  useGetWordsOnSearchQuery,
-} from "../../../store/api";
+import { useGetAllDictionaryQuery } from "../../../store/api";
 import { queryMaker, queryStringify } from "../../../utils/helpers";
-import { BigSearchIcon } from "../../icons";
 import Pagination from "../../pagination";
+import Search from "../../search";
 
 const DictionaryList = () => {
-  const [search, setSearch] = useState("");
-
   const navigate = useNavigate();
   const { search: query } = useLocation();
   const queryObj = queryMaker(query);
   const { letter, page } = queryObj;
   const { data: dictList } = useGetAllDictionaryQuery({ letter, page });
-
-  const { data: searchList } = useGetWordsOnSearchQuery(search);
 
   const letterList = useMemo(() => {
     return [
@@ -60,29 +53,7 @@ const DictionaryList = () => {
     <div className="dictionary-wrapper">
       <header className="dictionary-wrapper__header">
         <h2 className="dictionary-wrapper__title">So‘zni yozing</h2>
-        <div className="dictionary-wrapper__search">
-          <label className="dictionary-wrapper__label">
-            <input
-              className="dictionary-wrapper__input"
-              type="text"
-              placeholder="So‘zni yozing"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
-            <BigSearchIcon className="dictionary-wrapper__icon" />
-          </label>
-          {(searchList || []).length > 0 && (
-            <ul className="search-list">
-              {searchList.map(({ title: word }) => (
-                <li className="search-item" key={word}>
-                  <Link className="search-link" to={`/lugat/${word}`}>
-                    {word}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
+        <Search />
       </header>
       <div className="dictionary-wrapper__line"></div>
       <ul className="letter-list">
