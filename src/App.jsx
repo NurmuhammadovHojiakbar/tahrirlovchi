@@ -13,9 +13,9 @@ function App() {
       {/* <main className="site-main">
         <Routes />
         <Tied />
-      </main>
+      </main> */}
       <Footer />
-      {isSuggested && <SuggestionModal />} */}
+      {isSuggested && <SuggestionModal />}
     </>
   );
 }

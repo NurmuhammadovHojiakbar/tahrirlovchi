@@ -63,3 +63,32 @@
         color: #47a992;
     }
 }
+
+@media only screen and (max-width: 460px){
+    .site-footer{
+
+        &__logos{
+            margin-bottom: 25px;
+        }
+
+        &__line{
+            width: 100%;
+        }
+
+        &__socials{
+            gap: 10px;
+            flex-direction: column;
+            margin-bottom: 25px;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 410px){
+    .site-footer{
+
+        &__logos{
+            flex-direction: column;
+        }
+    }
+}
