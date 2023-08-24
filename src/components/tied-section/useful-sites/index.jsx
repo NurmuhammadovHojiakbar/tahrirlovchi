@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import useWindowSize from "../../../hooks/useWindowSize";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import GerbImg from "../../../assets/images/gerb.png";
@@ -5,9 +7,9 @@ import GovUzImg from "../../../assets/images/gov-uz.svg";
 import TsullImg from "../../../assets/images/tsull.png";
 import TilAdabiyotImg from "../../../assets/images/til-adabiyot.png";
 import { SliderIcon } from "../../icons";
-import { Link } from "react-router-dom";
 
 const UsefulSites = () => {
+  const { width } = useWindowSize();
   const sites = [
     {
       id: 1,
@@ -48,6 +50,8 @@ const UsefulSites = () => {
       path: "https://www.tsuull.uz/",
     },
   ];
+  const count =
+    width > 1200 ? 5 : width > 1000 ? 4 : width > 800 ? 3 : width > 600 ? 2 : 1;
 
   return (
     <div className="useful-sites">
@@ -62,7 +66,7 @@ const UsefulSites = () => {
         <Swiper
           className="useful-sites__swiper"
           spaceBetween={20}
-          slidesPerView={5}
+          slidesPerView={count}
           modules={[Navigation, Autoplay]}
           navigation={{
             prevEl: ".swiper-button__left",

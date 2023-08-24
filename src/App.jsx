@@ -10,10 +10,10 @@ function App() {
   return (
     <>
       <Header />
-      {/* <main className="site-main">
-        <Routes />
+      <main className="site-main">
+        {/* <Routes /> */}
         <Tied />
-      </main> */}
+      </main>
       <Footer />
       {isSuggested && <SuggestionModal />}
     </>
