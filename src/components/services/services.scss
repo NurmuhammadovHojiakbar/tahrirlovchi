@@ -188,3 +188,19 @@
         color: rgba(30, 30, 30,0.4);
     }
 }
+
+@media only screen and (max-width: 500px) {
+    .services-widget{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .services-header{
+        &__text{
+            padding: 8px 16px;
+        }
+    }
+
+    .copy-button{
+        padding: 10px 35px;
+    }
+}
