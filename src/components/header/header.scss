@@ -5,14 +5,37 @@
     box-shadow: 0px 3px 6px rgba($color: #000000, $alpha: 0.08);
 
     &__container{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 20px;
+        
+        &-static{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        &-dynamic{
+            padding-top: 10px;
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+
+    .site-hum{
+        display: none;
+        width: 34px;
+        height: 34px;
+        padding: 0;
+        border: none;
+        outline: none;
+        color: #2bc764;
+        background-color: transparent;
     }
 }
 
 .site-nav{
+
+    margin-left: auto;
+    margin-right: auto;
 
     &__list{
         display: flex;
@@ -66,5 +89,58 @@
         border-radius: 10px;
         background-color: #92e3a8;
         color: #47a992;
+    }
+
+    &__btn.active{
+        color: #92e3a8;
+        background-color: #47a992;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .site-header{
+
+        .site-hum{
+            display: block;
+        }
+
+        .site-logo{
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    .site-nav{
+        position: absolute;
+        top: 75px;
+        left: -100%;
+        max-width: 300px;
+        width: 100%;
+        padding: 25px;
+        min-height: calc(100vh - 75px);
+        background-color: #eefff2;
+        transition: left 0.3s ease;
+
+        &.active{
+            left: 0;
+        }
+
+        &__list{
+            position: relative;
+            z-index: 1;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        &::before{
+            position: absolute;
+            top: 0;
+            right: 0;
+            content: "";
+            width: 250px;
+            height: 100%;
+            background: url("../../assets/images/container-bg.png") no-repeat calc(100% + 250px) bottom;
+            opacity: 0.1;
+        }
     }
 }

@@ -10,7 +10,7 @@
     background-color: #202020;
     color: #fff;
     animation: 0.5s 1 alert_container_animation;
-      -webkit-animation: 35s 1 alert_container_animation;
+      -webkit-animation: 0.5s 1 alert_container_animation;
       z-index: 97;
 
     &::-webkit-scrollbar{

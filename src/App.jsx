@@ -10,12 +10,12 @@ function App() {
   return (
     <>
       <Header />
-      <main className="site-main">
+      {/* <main className="site-main">
         <Routes />
         <Tied />
       </main>
       <Footer />
-      {isSuggested && <SuggestionModal />}
+      {isSuggested && <SuggestionModal />} */}
     </>
   );
 }

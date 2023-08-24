@@ -1,10 +1,14 @@
+import PropTypes from "prop-types";
 import { EyeIcon, SearchIcon } from "../../icons";
 
-const Controller = () => {
+const Controller = ({ search, setSearch }) => {
   return (
     <div className="site-controller">
       <div className="site-controller__search">
-        <button className="site-controller__btn">
+        <button
+          className={`site-controller__btn ${search ? "active" : ""}`}
+          onClick={() => setSearch(!search)}
+        >
           <SearchIcon />
         </button>
       </div>
@@ -15,6 +19,11 @@ const Controller = () => {
       </div>
     </div>
   );
+};
+
+Controller.propTypes = {
+  search: PropTypes.bool,
+  setSearch: PropTypes.func,
 };
 
 export default Controller;
