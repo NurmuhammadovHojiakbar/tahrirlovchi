@@ -120,6 +120,7 @@
         min-height: calc(100vh - 75px);
         background-color: #eefff2;
         transition: left 0.3s ease;
+        z-index: 99;
 
         &.active{
             left: 0;

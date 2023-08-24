@@ -11,7 +11,7 @@ function App() {
     <>
       <Header />
       <main className="site-main">
-        {/* <Routes /> */}
+        <Routes />
         <Tied />
       </main>
       <Footer />
