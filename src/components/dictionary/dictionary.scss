@@ -31,8 +31,6 @@
         display: flex;
         align-items: center;
         gap: 5px;
-        max-width: 450px;
-        width: 100%;
         background-color: #eef2ff;
         padding: 13px 18px;
         border-radius: 10px;
@@ -78,6 +76,7 @@
 .words{
     &-list{
         display: flex;
+        justify-content: space-between;
         flex-wrap: wrap;
         gap: 10px;
         margin-bottom: 25px;
@@ -122,6 +121,39 @@
         &:hover{
             color: #497bcb;
             text-decoration: underline;
+        }
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .letter{
+        &-list{
+            flex-wrap: wrap;
+            gap: 2px;
+        }
+
+        &-item{
+            flex-basis: calc((100% - 28px) / 14);
+        }
+    }
+
+    .words{
+        &-item{
+            flex-basis: 30%;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .letter{
+        &-item{
+            flex-basis: calc((100% - 14px) / 7);
+        }
+    }
+
+    .words{
+        &-item{
+            flex-basis: 48%;
         }
     }
 }

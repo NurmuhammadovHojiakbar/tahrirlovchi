@@ -49,3 +49,11 @@
     
 }
 
+@media only screen and (max-width: 610px) {
+    .pagination{
+        &-list{
+            flex-wrap: wrap;
+        }
+    }
+}
+

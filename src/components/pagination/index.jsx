@@ -2,13 +2,15 @@ import PropTypes from "prop-types";
 import usePagination from "../../hooks/usePagination";
 import { SliderIcon } from "../icons";
 import "./pagination.scss";
+import useWindowSize from "../../hooks/useWindowSize";
 
 const Pagination = ({ itemsPerPage, totalItems, currentPage, handler }) => {
+  const { width } = useWindowSize();
   const [rangeList, DOTS] = usePagination({
     currentIndex: currentPage,
     itemsPerPage,
     totalItems,
-    siblingCount: 2,
+    siblingCount: width > 610 ? 2 : 1,
   });
 
   return (
