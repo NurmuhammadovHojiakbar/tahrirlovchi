@@ -5,10 +5,14 @@
     flex-wrap: wrap;
     gap: 16px;
 
+    &-lang{
+        display: none;
+    }
+
     .button-container{
+        position: absolute;
         cursor: pointer;
         display: flex;
-        position: absolute;
         top: 0;
         left: 50%;
         width: 58px;
@@ -92,5 +96,38 @@
 
     &:active{
         transform: scale(0.9);
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .editor{
+        display: flex;
+        flex-direction: column;
+        bottom: 0;
+        padding: 20px 25px 74px;
+
+        .button-container{
+            display: none;
+        }
+
+        &-content__wrapper{
+            min-height: 250px;
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .editor{
+        &-header{
+            flex-wrap: wrap;
+        }
+
+        .button-checker{
+            width: 100%;
+        }
+
+        &-content{
+            padding: 24px 32px;
+        }
     }
 }

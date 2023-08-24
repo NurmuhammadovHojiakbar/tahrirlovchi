@@ -10,8 +10,6 @@ const EditorContainer = () => {
 
   return (
     <div className="container editor">
-      <EditorContent />
-      <EditorContent pos={"right"} />
       <div
         className="button-container"
         onClick={() => dispatch(updateLang(!isLatin))}
@@ -20,6 +18,8 @@ const EditorContainer = () => {
           <TranslateIcon />
         </div>
       </div>
+      <EditorContent />
+      <EditorContent pos={"right"} />
     </div>
   );
 };

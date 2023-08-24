@@ -1,73 +1,16 @@
 import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
-import { EditorState } from "draft-js";
-import {
-  updateEditor,
-  updateErrorWords,
-  updateLang,
-} from "../../../store/reducer/editor-slice";
-import { useCheckContentMutation } from "../../../store/api";
-import translate from "../../../utils/Translator";
-import Swal from "sweetalert2";
-import { generateDecorator } from "../../../utils/helpers";
+import { updateLang } from "../../../store/reducer/editor-slice";
 import useOnClickOutside from "../../../hooks/useOnClickOutside";
+import CheckButton from "../check-button";
 
 const EditorHeader = ({ pos }) => {
   const [open, setOpen] = useState(false);
   const langRef = useRef(null);
-  const { isLatin, content } = useSelector((store) => store.editorState);
+  const { isLatin } = useSelector((store) => store.editorState);
   const dispatch = useDispatch();
-  const [mutator] = useCheckContentMutation();
   useOnClickOutside(langRef, () => setOpen(false));
-
-  const checkHandler = async (words) => {
-    try {
-      const res = await mutator({
-        text: translate(words, true),
-      });
-      const data = await res.data;
-      if (data?.length > 0) {
-        if (isLatin) {
-          dispatch(updateErrorWords(data));
-          return dispatch(
-            updateEditor(
-              EditorState.set(content, {
-                decorator: generateDecorator(data),
-              })
-            )
-          );
-        }
-        const translatedErrors = data.map((el) => {
-          return {
-            word: translate(el.word),
-            suggestions: el.suggestions.map((el) => translate(el)),
-          };
-        });
-        dispatch(updateErrorWords(translatedErrors));
-        return dispatch(
-          updateEditor(
-            EditorState.set(content, {
-              decorator: generateDecorator(translatedErrors),
-            })
-          )
-        );
-      }
-      Swal.fire({
-        title: "Muvaffaqiyatli!",
-        text: "Xato so‘z topilmadi! Davom ettirishni xohlaysizmi",
-        icon: "success",
-        confirmButtonText: "Ha",
-      });
-    } catch (err) {
-      Swal.fire({
-        title: "Xatolik!",
-        text: "Davom ettirishni xohlaysizmi",
-        icon: "error",
-        confirmButtonText: "Ha",
-      });
-    }
-  };
 
   const onChangeHandler = (bool) => {
     dispatch(updateLang(bool));
@@ -103,16 +46,7 @@ const EditorHeader = ({ pos }) => {
           </div>
         )}
       </div>
-      {!pos && (
-        <button
-          className="button-checker"
-          onClick={() =>
-            checkHandler(content.getCurrentContent().getPlainText(" "))
-          }
-        >
-          Tekshirish
-        </button>
-      )}
+      {!pos && <CheckButton />}
     </header>
   );
 };
