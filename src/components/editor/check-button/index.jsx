@@ -20,7 +20,15 @@ const CheckButton = () => {
       const res = await mutator({
         text: translate(words, true),
       });
-      const data = await res.data;
+      const alldata = await res.data;
+      const data = alldata.map((el) => ({
+        ...el,
+        suggestions: el.suggestions
+          .map((item) => item.toLowerCase())
+          .filter((value, index, self) => {
+            return self.indexOf(value) === index;
+          }),
+      }));
       if (data?.length > 0) {
         if (isLatin) {
           dispatch(updateErrorWords(data));
