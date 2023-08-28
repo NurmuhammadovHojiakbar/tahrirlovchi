@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useGetWordTypesQuery } from "../../../store/api";
 import { queryMaker, queryStringify } from "../../../utils/helpers";
 import useOnClickOutside from "../../../hooks/useOnClickOutside";
@@ -9,14 +9,14 @@ const DictionaryType = () => {
   const typeRef = useRef();
   const navigate = useNavigate();
 
-  const { search } = useParams();
+  const { search } = useLocation();
   const queryObj = queryMaker(search);
   const { type } = queryObj;
 
   const { data: types, isLoading } = useGetWordTypesQuery();
   useOnClickOutside(typeRef, () => setOpen(false));
 
-  const curType = (types || []).find((el) => el.id === (type || 1));
+  const curType = (types || []).find((el) => el.id === (Number(type) || 1));
 
   const pageChangeHandler = (type) => {
     navigate(`/lugat?${queryStringify(queryObj, { type })}`);
