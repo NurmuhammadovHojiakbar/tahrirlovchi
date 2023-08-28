@@ -50,7 +50,8 @@ const EditorContent = ({ pos }) => {
           .map((word) => translate(word, true))
           .join(" "),
   }));
-  const translated = convertToHTML(convertFromRaw(rowState));
+  const convertedState = convertFromRaw(rowState);
+  const translated = convertToHTML(convertedState);
 
   return (
     <div className="editor-content">
@@ -80,7 +81,7 @@ const EditorContent = ({ pos }) => {
           onClick={() =>
             copyToClipboard(
               pos
-                ? translated.join(" ")
+                ? convertedState.getPlainText()
                 : editor.getCurrentContent().getPlainText()
             )
           }
@@ -89,7 +90,7 @@ const EditorContent = ({ pos }) => {
           onClick={() =>
             saveAsFile(
               pos
-                ? translated.join(" ")
+                ? convertedState.getPlainText()
                 : editor.getCurrentContent().getPlainText()
             )
           }
@@ -98,7 +99,7 @@ const EditorContent = ({ pos }) => {
           onClick={() =>
             shareHandler(
               pos
-                ? translated.join(" ")
+                ? convertedState.getPlainText()
                 : editor.getCurrentContent().getPlainText()
             )
           }
