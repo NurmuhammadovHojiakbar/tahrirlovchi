@@ -614,7 +614,10 @@ function lotinga(CyrillicMessage) {
       }
     }
   }
-  CyrillicMessage = CyrillicMessage.replace("«", "“").replace("»", "”");
+  CyrillicMessage = CyrillicMessage.replace("«", "“")
+    .replace("»", "”")
+    .replace("Ъ", "’")
+    .replace("ъ", "’");
   decrypt(CyrillicMessage);
   return LatinTranslated;
 }
