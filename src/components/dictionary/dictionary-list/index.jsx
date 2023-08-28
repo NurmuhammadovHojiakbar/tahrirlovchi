@@ -4,13 +4,14 @@ import { useGetAllDictionaryQuery } from "../../../store/api";
 import { queryMaker, queryStringify } from "../../../utils/helpers";
 import Pagination from "../../pagination";
 import Search from "../../search";
+import DictionaryType from "../dictionary-type";
 
 const DictionaryList = () => {
   const navigate = useNavigate();
   const { search: query } = useLocation();
   const queryObj = queryMaker(query);
-  const { letter, page } = queryObj;
-  const { data: dictList } = useGetAllDictionaryQuery({ letter, page });
+  const { letter, page, type } = queryObj;
+  const { data: dictList } = useGetAllDictionaryQuery({ letter, page, type });
 
   const letterList = useMemo(() => {
     return [
@@ -52,8 +53,11 @@ const DictionaryList = () => {
   return (
     <div className="dictionary-wrapper">
       <header className="dictionary-wrapper__header">
-        <h2 className="dictionary-wrapper__title">So‘zni yozing</h2>
-        <Search />
+        <div className="dictionary-wrapper__header-left">
+          <h2 className="dictionary-wrapper__title">So‘zni yozing</h2>
+          <Search />
+        </div>
+        <DictionaryType />
       </header>
       <div className="dictionary-wrapper__line"></div>
       <ul className="letter-list">

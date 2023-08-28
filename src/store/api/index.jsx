@@ -6,16 +6,19 @@ export const translatorApi = createApi({
   endpoints: (builder) => ({
     // Words
     getAllDictionary: builder.query({
-      query: ({ letter, page }) =>
+      query: ({ letter, page, type }) =>
         `/dictionary/by-letter/?q=${letter || "a"}&offset=${
           ((page || 1) - 1) * 100
-        }&limit=100`,
+        }&limit=100&type=${type || 1}`,
     }),
     getWord: builder.query({
       query: (word) => `/dictionary/word/?q=${word}`,
     }),
     getWordsOnSearch: builder.query({
       query: (word) => `/dictionary/search/?q=${word}`,
+    }),
+    getWordTypes: builder.query({
+      query: () => "/dictionary/types/",
     }),
     // Files
     postFile: builder.mutation({
@@ -48,7 +51,8 @@ export const {
   useGetAllDictionaryQuery,
   useGetWordQuery,
   useGetWordsOnSearchQuery,
-  usePostFileMutation,  
+  useGetWordTypesQuery,
+  usePostFileMutation,
   usePostImageMutation,
   useCheckContentMutation,
 } = translatorApi;

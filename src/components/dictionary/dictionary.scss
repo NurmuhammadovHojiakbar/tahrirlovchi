@@ -10,6 +10,13 @@
         align-items: center;
         gap: 20px;
         margin-bottom: 24px;
+
+        &-left{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-grow: 1;
+        }
     }
 
     &__title{
@@ -99,7 +106,6 @@
 }
 
 .search{
-
     &-list{
         position: absolute;
         padding: 13px 18px;
@@ -122,6 +128,38 @@
             color: #497bcb;
             text-decoration: underline;
         }
+    }
+}
+
+.dictionary-type{
+    position: relative;
+
+    &__button{
+        width: 100%;
+        text-align: start;
+        padding: 13px 18px;
+        background-color: #eef2ff;
+        border-radius: 10px;
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 500;
+        color: #1e1e1e;
+        outline: none;
+        border: none;
+        white-space: nowrap;
+    }
+
+    &__list{
+        position: absolute;
+        transform: translateY(10px);
+        width: 100%;
+        background-color: #eef2ff;
+        border: 1px solid #497bcb;
+        border-radius: 10px;
+    }
+
+    &__item:not(:last-of-type){
+        border-bottom: 1px solid #497bcb;
     }
 }
 
