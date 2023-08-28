@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Editor, EditorState, convertToRaw } from "draft-js";
+import { Editor, EditorState, convertFromRaw, convertToRaw } from "draft-js";
 import PropTypes from "prop-types";
 import EditorHeader from "../editor-header";
 import {
@@ -16,6 +16,8 @@ import {
   saveAsFile,
   shareHandler,
 } from "../../../utils/helpers";
+import { convertToHTML } from "draft-convert";
+import DOMPurify from "dompurify";
 
 const EditorContent = ({ pos }) => {
   const editorRef = useRef(null);
@@ -28,8 +30,10 @@ const EditorContent = ({ pos }) => {
     dispatch(updateEditor(newEditorState));
   };
 
-  const translated = convertToRaw(editor.getCurrentContent()).blocks.map((el) =>
-    isLatin
+  const rowState = convertToRaw(editor.getCurrentContent());
+  rowState.blocks = rowState.blocks.map((el) => ({
+    ...el,
+    text: isLatin
       ? el.text
           .split(" ")
           .map((word) => translate(word, false))
@@ -44,8 +48,9 @@ const EditorContent = ({ pos }) => {
           )
           .split(" ")
           .map((word) => translate(word, true))
-          .join(" ")
-  );
+          .join(" "),
+  }));
+  const translated = convertToHTML(convertFromRaw(rowState));
 
   return (
     <div className="editor-content">
@@ -53,11 +58,10 @@ const EditorContent = ({ pos }) => {
       <div className="editor-line"></div>
       <div className="editor-content__wrapper">
         {pos ? (
-          <div className="editor-content__result">
-            {translated?.map((el, indx) =>
-              el === "" ? <br key={indx} /> : <p key={indx}>{el}</p>
-            )}
-          </div>
+          <div
+            className="editor-content__result"
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(translated) }}
+          ></div>
         ) : (
           <div
             className="editor-content__context"

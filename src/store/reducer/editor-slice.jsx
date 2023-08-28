@@ -85,7 +85,6 @@ const editorSlice = createSlice({
       return {
         ...state,
         content: EditorState.push(state.content, contentState),
-        errorWords: state.errorWords.filter((el) => el.word !== word),
         isSuggested: false,
       };
     },

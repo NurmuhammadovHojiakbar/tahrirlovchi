@@ -48,6 +48,10 @@
         &__result p{
             margin: 0;
         }
+        
+        &__result p:empty{
+            padding-bottom: 20px;
+        }
 
         &__context{
             flex-grow: 1;

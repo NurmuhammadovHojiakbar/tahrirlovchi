@@ -21,7 +21,7 @@ const EditorHeader = ({ pos }) => {
 
   return (
     <header className="editor-header">
-      <p className="editor-header__text">Tilni tanlang</p>
+      <p className="editor-header__text">Alifboni tanlang</p>
       <div className="word-wrapper__lang" ref={langRef}>
         <button
           className="word-wrapper__lang-button word-wrapper__lang-current"

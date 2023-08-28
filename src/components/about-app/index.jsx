@@ -42,11 +42,11 @@ const AboutApp = () => {
           </p>
           <ul className="about-app__list">
             <li className="about-app__item">
-              Matn va so‘zlarni lotin-krill, kirill-lotin grafikasiga onlayn,
+              Matn va so‘zlarni lotin-kirill, kirill-lotin grafikasiga onlayn,
               tez va bexato o‘girish;
             </li>
             <li className="about-app__item">
-              Matn va so‘zlarni yozilish jihatdan to‘g‘riliginini tekshirish;
+              Matn va so‘zlarning yozilish jihatdan to‘g‘riliginini tekshirish;
             </li>
             <li className="about-app__item">
               Barcha yo‘nalishlardagi izohli lug‘atlar bazasi;
@@ -56,8 +56,8 @@ const AboutApp = () => {
               aylantirish;
             </li>
             <li className="about-app__item">
-              Microsoft word hamda microsoft excel fayllarni lotin va kirill
-              grafikasida tezkorlik bilan o‘girish;
+              Microsoft Word hamda Microsoft Excel fayllardagi matnlarni lotin
+              va kirill grafikasiga tezkorlik bilan o‘girish;
             </li>
             <li className="about-app__item">
               Rasmlardan matnni ajratib olish.
