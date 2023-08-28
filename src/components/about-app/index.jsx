@@ -46,7 +46,7 @@ const AboutApp = () => {
               tez va bexato o‘girish;
             </li>
             <li className="about-app__item">
-              Matn va so‘zlarning yozilish jihatdan to‘g‘riliginini tekshirish;
+              Matn va so‘zlarning yozilish jihatdan to‘g‘riligini tekshirish;
             </li>
             <li className="about-app__item">
               Barcha yo‘nalishlardagi izohli lug‘atlar bazasi;
