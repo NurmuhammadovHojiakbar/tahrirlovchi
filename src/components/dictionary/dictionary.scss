@@ -183,6 +183,12 @@
 }
 
 @media only screen and (max-width: 600px) {
+    .dictionary-wrapper{
+        &__header{
+            flex-direction: column;
+            align-items: stretch;
+        }
+    }
     .letter{
         &-item{
             flex-basis: calc((100% - 14px) / 7);
