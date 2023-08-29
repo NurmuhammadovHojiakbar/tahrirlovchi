@@ -16,12 +16,16 @@ const DictionaryType = () => {
   const { data: types, isLoading } = useGetWordTypesQuery();
   useOnClickOutside(typeRef, () => setOpen(false));
 
-  const curType = (types || []).find((el) => el.id === (Number(type) || 1));
+  const curType = (types || []).find((el) => el.id === Number(type));
 
   const pageChangeHandler = (type) => {
     navigate(`/lugat?type=${type}`);
     setOpen(false);
   };
+
+  const sorted = [...(types || [])]?.sort((a, b) =>
+    a.title.localeCompare(b.title)
+  );
 
   if (isLoading) {
     return <div className="dictionary-type__skeleton"></div>;
@@ -33,11 +37,11 @@ const DictionaryType = () => {
         className="dictionary-type__button"
         onClick={() => setOpen(!open)}
       >
-        {curType?.title}
+        {curType?.title || "Lug‘atni tanlang"}
       </button>
       {open && (
         <ul className="dictionary-type__list">
-          {types?.map((type) => (
+          {sorted?.map((type) => (
             <li className="dictionary-type__item" key={type.id}>
               <button
                 className="dictionary-type__button"
