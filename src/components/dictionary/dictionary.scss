@@ -133,6 +133,16 @@
 
 .dictionary-type{
     position: relative;
+    max-width: 250px;
+    width: 100%;
+
+    &__skeleton{
+        max-width: 250px;
+        width: 100%;
+        height: 50px;
+        background-color: #eef2ff;
+        border-radius: 10px;
+    }
 
     &__button{
         width: 100%;
@@ -146,7 +156,6 @@
         color: #1e1e1e;
         outline: none;
         border: none;
-        white-space: nowrap;
     }
 
     &__list{
@@ -198,6 +207,14 @@
     .words{
         &-item{
             flex-basis: 48%;
+        }
+    }
+
+    .dictionary-type{
+        max-width: 100%;
+        
+        &__skeleton{
+            max-width: 100%;
         }
     }
 }

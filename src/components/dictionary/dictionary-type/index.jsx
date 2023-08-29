@@ -24,11 +24,11 @@ const DictionaryType = () => {
   };
 
   if (isLoading) {
-    return <div className="skeleton"></div>;
+    return <div className="dictionary-type__skeleton"></div>;
   }
 
   return (
-    <div className="dictionary-type">
+    <div className="dictionary-type" ref={typeRef}>
       <button
         className="dictionary-type__button"
         onClick={() => setOpen(!open)}
@@ -36,7 +36,7 @@ const DictionaryType = () => {
         {curType?.title}
       </button>
       {open && (
-        <ul className="dictionary-type__list" ref={typeRef}>
+        <ul className="dictionary-type__list">
           {types?.map((type) => (
             <li className="dictionary-type__item" key={type.id}>
               <button
