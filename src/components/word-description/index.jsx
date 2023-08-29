@@ -1,5 +1,6 @@
 import { useMemo, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
+import { convertFromHTML, convertToHTML } from "draft-convert";
 import { useGetWordQuery } from "../../store/api";
 import { CopyButton, SaveButton, ShareButton } from "../controllers";
 import translate from "../../utils/Translator";
@@ -7,24 +8,38 @@ import { copyToClipboard, saveAsFile, shareHandler } from "../../utils/helpers";
 import "./word.scss";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
 import Search from "../search";
+import { convertFromRaw, convertToRaw } from "draft-js";
+import DOMPurify from "dompurify";
 
 const WordDescription = () => {
   const [isLatin, setIsLatin] = useState(true);
   const [open, setOpen] = useState(false);
   const langRef = useRef();
   useOnClickOutside(langRef, () => setOpen(false));
+
   const { word: wordParam } = useParams();
   const { data } = useGetWordQuery(wordParam);
 
   const word = (data || [])[0];
   const latinDesc = word?.description || "";
+
   const cyrillicDesc = useMemo(() => {
-    return (
-      word?.description
-        .split(" ")
-        .map((el) => translate(el, false))
-        .join(" ") || ""
-    );
+    if (!word) {
+      return <p></p>;
+    }
+    const blocksFromHTML = convertFromHTML(word?.description);
+
+    const rowState = convertToRaw(blocksFromHTML);
+    rowState.blocks = rowState?.blocks?.map((el) => ({
+      ...el,
+      text: el.text.startsWith("ing. - ")
+        ? el.text
+        : el.text
+            .split(" ")
+            .map((word) => translate(word, false))
+            .join(" "),
+    }));
+    return convertToHTML(convertFromRaw(rowState));
   }, [word]);
 
   const onChangeHandler = (bool) => {
@@ -69,7 +84,7 @@ const WordDescription = () => {
           <div
             className="word-wrapper__description"
             dangerouslySetInnerHTML={{
-              __html: isLatin ? latinDesc : cyrillicDesc,
+              __html: DOMPurify.sanitize(isLatin ? latinDesc : cyrillicDesc),
             }}
           ></div>
         </div>
