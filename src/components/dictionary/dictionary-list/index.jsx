@@ -89,12 +89,14 @@ const DictionaryList = () => {
         ))}
       </ul>
       <footer className="dictionary-wrapper__footer">
-        <Pagination
-          itemsPerPage={100}
-          totalItems={dictList?.count}
-          currentPage={Number(page) || 1}
-          handler={pageChangeHandler}
-        />
+        {dictList.results?.length > 0 && (
+          <Pagination
+            itemsPerPage={100}
+            totalItems={dictList?.count}
+            currentPage={Number(page) || 1}
+            handler={pageChangeHandler}
+          />
+        )}
       </footer>
     </div>
   );
