@@ -44,6 +44,14 @@ export const translatorApi = createApi({
         body: content,
       }),
     }),
+    // Feedback
+    sendFeedback: builder.mutation({
+      query: (data) => ({
+        url: "/contact/",
+        method: "POST",
+        body: data,
+      }),
+    }),
   }),
 });
 
@@ -55,4 +63,5 @@ export const {
   usePostFileMutation,
   usePostImageMutation,
   useCheckContentMutation,
+  useSendFeedbackMutation,
 } = translatorApi;

@@ -1,7 +1,17 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import { ClockIcon, MailIcon, PhoneIcon } from "../../icons";
+import { useSendFeedbackMutation } from "../../../store/api";
 
 const Contact = () => {
+  const [feedback, setFeedback] = useState({
+    name: "",
+    email: "",
+    description: "",
+  });
+  const [mutator] = useSendFeedbackMutation();
+
   const list = [
     {
       id: 1,
@@ -28,6 +38,45 @@ const Contact = () => {
       icon: <ClockIcon />,
     },
   ];
+
+  const onChangeHandler = (e) => {
+    const { name, value } = e.target;
+
+    setFeedback((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+
+    try {
+      const data = await mutator(feedback);
+      if (data) {
+        Swal.fire({
+          title: "Xabar muvaffaqiyatli yuborildi!",
+          text: "Davom ettirishni xohlaysizmi",
+          icon: "success",
+          confirmButtonText: "Ha",
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        title: "Xabar yuborishda xatolik!",
+        text: "Davom ettirishni xohlaysizmi",
+        icon: "error",
+        confirmButtonText: "Ha",
+      });
+    } finally {
+      setFeedback({
+        name: "",
+        email: "",
+        description: "",
+      });
+    }
+  };
+
   return (
     <div className="contact">
       <h2 className="site-title contact-title">Biz bilan bog‘laning</h2>
@@ -37,23 +86,40 @@ const Contact = () => {
       </p>
 
       <div className="contact-wrapper">
-        <form className="contact-form">
+        <form className="contact-form" onSubmit={submitHandler}>
           <div className="contact-form__wrapper">
             <label className="contact-form__label">
               <span className="contact-form__text">Ismingiz</span>
-              <input className="contact-form__input" type="text" name="name" />
+              <input
+                className="contact-form__input"
+                type="text"
+                name="name"
+                value={feedback.name}
+                onChange={onChangeHandler}
+                required
+              />
             </label>
             <label className="contact-form__label">
               <span className="contact-form__text">E-mailingiz</span>
-              <input className="contact-form__input" type="email" name="name" />
+              <input
+                className="contact-form__input"
+                type="email"
+                name="email"
+                value={feedback.email}
+                onChange={onChangeHandler}
+                required
+              />
             </label>
             <label className="contact-form__label">
               <span className="contact-form__text">Xabar matni</span>
               <textarea
                 className="contact-form__textarea"
                 type="text"
-                name="name"
+                name="description"
                 rows={15}
+                value={feedback.description}
+                onChange={onChangeHandler}
+                required
               />
             </label>
           </div>
