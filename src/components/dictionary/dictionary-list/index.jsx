@@ -89,7 +89,7 @@ const DictionaryList = () => {
         ))}
       </ul>
       <footer className="dictionary-wrapper__footer">
-        {dictList.results?.length > 0 && (
+        {dictList?.results?.length > 0 && (
           <Pagination
             itemsPerPage={100}
             totalItems={dictList?.count}
