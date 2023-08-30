@@ -18,6 +18,10 @@
         color: #1e1e1e;
     }
 
+    &__word.upper{
+        text-transform: capitalize;
+    }
+
     &__lang{
         margin-left: auto;
         max-width: 200px;

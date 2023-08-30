@@ -42,7 +42,7 @@ const DictionaryList = () => {
       "Oʻ",
       "Gʻ",
       "Sh",
-      "CH",
+      "Ch",
     ];
   }, []);
 
@@ -82,7 +82,10 @@ const DictionaryList = () => {
       <ul className="words-list">
         {(dictList?.results || []).map((word, ind) => (
           <li className="words-item" key={ind}>
-            <Link className="words-link" to={`/lugat/${word.title}`}>
+            <Link
+              className={`words-link ${type === "7" ? "upper" : ""}`}
+              to={`/lugat/${word.title}`}
+            >
               {word.title}
             </Link>
           </li>

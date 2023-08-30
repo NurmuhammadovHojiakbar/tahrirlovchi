@@ -103,6 +103,10 @@
             text-decoration: underline;
         }
     }
+
+    &-link.upper{
+        text-transform: capitalize;
+    }
 }
 
 .search{

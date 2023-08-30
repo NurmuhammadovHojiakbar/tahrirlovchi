@@ -51,7 +51,11 @@ const WordDescription = () => {
     <div className="container word-container">
       <div className="dictionary-wrapper word-wrapper">
         <header className="word-wrapper__header">
-          <div className="word-wrapper__word">
+          <div
+            className={`word-wrapper__word ${
+              word?.dictionary_type === 7 ? "upper" : ""
+            }`}
+          >
             {isLatin ? word?.title : translate(word?.title || "")}
           </div>
           <div className="word-wrapper__lang" ref={langRef}>
@@ -90,13 +94,31 @@ const WordDescription = () => {
         </div>
         <footer className="word-wrapper__footer">
           <CopyButton
-            onClick={() => copyToClipboard(isLatin ? latinDesc : cyrillicDesc)}
+            onClick={() =>
+              copyToClipboard(
+                isLatin
+                  ? `${word?.title || ""} - ${latinDesc}`
+                  : `${translate(word?.title || "")} - ${cyrillicDesc}`
+              )
+            }
           />
           <ShareButton
-            onClick={() => shareHandler(isLatin ? latinDesc : cyrillicDesc)}
+            onClick={() =>
+              shareHandler(
+                isLatin
+                  ? `${word?.title || ""} - ${latinDesc}`
+                  : `${translate(word?.title || "")} - ${cyrillicDesc}`
+              )
+            }
           />
           <SaveButton
-            onClick={() => saveAsFile(isLatin ? latinDesc : cyrillicDesc)}
+            onClick={() =>
+              saveAsFile(
+                isLatin
+                  ? `${word?.title || ""} - ${latinDesc}`
+                  : `${translate(word?.title || "")} - ${cyrillicDesc}`
+              )
+            }
           />
         </footer>
       </div>
