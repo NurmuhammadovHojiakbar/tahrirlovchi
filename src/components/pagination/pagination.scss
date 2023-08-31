@@ -9,7 +9,7 @@
     &-button{
         padding: 5px 13px;
         font-weight: 500;
-        font-size: 17px;
+        font-size: calc(var(--font-size) + 17px);
         line-height: 22px;
         color: #070A0E;
         border: 1px solid #497bcb;

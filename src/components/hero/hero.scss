@@ -31,13 +31,13 @@
 
         &__text{
             margin: 0;
-            font-size: 36px;
+            font-size: calc(var(--font-size) + 36px);
             line-height: 48px;
         }
 
         &__title{
             margin: 0;
-            font-size: 56px;
+            font-size: calc(var(--font-size) + 56px);
             line-height: 98px;
             font-weight: 700;
         }

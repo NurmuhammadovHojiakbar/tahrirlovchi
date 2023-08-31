@@ -10,7 +10,10 @@ const SpecialView = () => {
   const rangeHandler = (e) => {
     const newVal = e.target.value;
     setRange(newVal);
-    document.documentElement.style.setProperty("--font-size", newVal);
+    document.documentElement.style.setProperty(
+      "--font-size",
+      `${Math.round((10 * newVal) / 100)}px`
+    );
   };
 
   return (

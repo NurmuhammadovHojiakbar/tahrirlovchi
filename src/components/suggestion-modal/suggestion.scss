@@ -44,7 +44,7 @@
         background-color: #202020;
         color: #fff;
         padding: 5px 5px 5px 15px;
-        font-size: 16px;
+        font-size: calc(var(--font-size) + 16px);
     }
     
     &-input::placeholder{
@@ -67,7 +67,7 @@
             text-align: start;
             padding: 8px;
             border-radius: 0 0 10px 10px;
-            font-size: 15px;
+            font-size: calc(var(--font-size) + 15px);
         }
     }
 

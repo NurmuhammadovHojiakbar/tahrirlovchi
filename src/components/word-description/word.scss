@@ -12,7 +12,7 @@
         padding: 13px 18px;
         background-color: #eef2ff;
         border-radius: 10px;
-        font-size: 16px;
+        font-size: calc(var(--font-size) + 16px);
         line-height: 22px;
         font-weight: 500;
         color: #1e1e1e;
@@ -35,7 +35,7 @@
             padding: 13px 18px;
             background-color: #eef2ff;
             border-radius: 10px;
-            font-size: 16px;
+            font-size: calc(var(--font-size) + 16px);
             line-height: 22px;
             font-weight: 500;
             color: #1e1e1e;
@@ -55,7 +55,7 @@
         }
 
         &-controller{
-            font-size: 16px;
+            font-size: calc(var(--font-size) + 16px);
             line-height: 22px;
             font-weight: 500;
             color: #1e1e1e;
@@ -72,7 +72,7 @@
     }
 
     &__context{
-        font-size: 16px;
+        font-size: calc(var(--font-size) + 16px);
         line-height: 22px;
         font-weight: 500;
         color: #1e1e1e;

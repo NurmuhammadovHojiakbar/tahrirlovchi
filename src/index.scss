@@ -153,7 +153,7 @@ input::-webkit-inner-spin-button {
 
 .site-title{
   margin-top: 0;
-  font-size: 22px;
+  font-size: calc(var(--font-size) + 22px);
   line-height: 39px;
   font-weight: 600;
   color: #78CB49;

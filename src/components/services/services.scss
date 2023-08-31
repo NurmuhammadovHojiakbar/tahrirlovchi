@@ -37,7 +37,7 @@
 
     &__text{
         cursor: pointer;
-        font-size: 14px;
+        font-size: calc(var(--font-size) + 14px);
         line-height: 20px;
         font-weight: 500;
         border-radius: 10px;
@@ -54,7 +54,7 @@
     &__title{
         margin: 0;
         color: #888888;
-        font-size: 14px;
+        font-size: calc(var(--font-size) + 14px);
         line-height: 20px;
         font-weight: 600;
     }
@@ -177,13 +177,13 @@
         outline: none;
         background-color: transparent;
         color: #227547;
-        font-size: 14px;
+        font-size: calc(var(--font-size) + 14px);
         line-height: 28px;
         font-weight: 600;
     }
 
     p{
-        font-size: 14px;
+        font-size: calc(var(--font-size) + 14px);
         line-height: 28px;
         color: rgba(30, 30, 30,0.4);
     }
