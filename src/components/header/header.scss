@@ -153,6 +153,17 @@
             background-color: #3e3e3e;
         }
     }
+
+    &__info{
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 14px;
+        line-height: 19px;
+    }
+
+    &__range{
+        width: 100%;
+    }
 }
 
 @media only screen and (max-width: 800px) {
