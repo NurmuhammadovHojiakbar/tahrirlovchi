@@ -1,11 +1,11 @@
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import LogoImg from "../../assets/images/site-logo.png";
 import Navigation from "./navigation";
-// import Controller from "./controller";
+import Controller from "./controller";
 import Search from "../search";
-import "./header.scss";
-import { useEffect, useState } from "react";
 import { HumCloseIcon, HumIcon } from "../icons";
+import "./header.scss";
 
 const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -38,7 +38,7 @@ const Header = () => {
           <nav className={`site-nav ${isMobile ? "active" : ""}`}>
             <Navigation />
           </nav>
-          {/* <Controller search={open} setSearch={setOpen} /> */}
+          <Controller search={open} setSearch={setOpen} />
         </div>
         {open && (
           <div className="site-header__container-dynamic">
