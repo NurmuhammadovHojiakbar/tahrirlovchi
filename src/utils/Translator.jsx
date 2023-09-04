@@ -378,7 +378,21 @@ function kirillga(originalMessage) {
   function encrypt(string) {
     for (let i = 0; i < string.length; i++) {
       for (let j = 0; j < alphaLatin.length; j++) {
-        if (string[i] === alphaLatin[j]) {
+        if (string[i] === "'") {
+          const prevLetter = string[i - 1]?.charCodeAt();
+          const nextLetter = string[i + 1]?.charCodeAt();
+          if (
+            prevLetter > 64 &&
+            prevLetter < 91 &&
+            nextLetter > 64 &&
+            nextLetter < 91
+          ) {
+            CyrillicTranslated += "Ъ";
+            break;
+          }
+          CyrillicTranslated += "ъ";
+          break;
+        } else if (string[i] === alphaLatin[j]) {
           CyrillicTranslated += alphaRus[j];
           break;
         } else if (
@@ -573,20 +587,35 @@ function lotinga(CyrillicMessage) {
     }
 
     if (currentWord[0] === "Е") {
-      for (let z = 1; z < currentWord.length; z++) {
-        if (
-          currentWord.charCodeAt(z) >= 1040 &&
-          currentWord.charCodeAt(z) <= 1071
-        ) {
-          const E = currentWord.replace(/Е/i, "YE");
-          return E;
-        } else {
-          const E = currentWord.replace(/Е/i, "Ye");
-          return E;
-        }
+      const nextLetter = currentWord[1]?.charCodeAt();
+      if (nextLetter >= 1040 && nextLetter <= 1071) {
+        const E = currentWord.replace(/Е/i, "YE");
+        return E;
       }
+      const E = currentWord.replace(/Е/i, "Ye");
+      return E;
     } else if (currentWord[0] === "е") {
       const e = currentWord.replace(/е/i, "ye");
+      return e;
+    } else if (currentWord.includes("е")) {
+      const e = currentWord.replace(
+        /ае|уе|ое|ые|ие|эе|яе|юе|ёе|ее/gi,
+        (rep) => {
+          const vowel = rep[0];
+          return `${vowel}${"ye"}`;
+        }
+      );
+      return e;
+    } else if (currentWord.includes("Е")) {
+      const e = currentWord.replace(/е|уе|ое|ые|ие|эе|яе|юе|ёе|ее/gi, (rep) => {
+        const vowel = rep[0];
+        if (
+          ["А", "У", "О", "Ы", "И", "Э", "Я", "Ю", "Ё", "Е"].includes(vowel)
+        ) {
+          return `${"YE"}`;
+        }
+        return `${vowel}${"Ye"}`;
+      });
       return e;
     } else {
       return currentWord;
