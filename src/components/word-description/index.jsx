@@ -56,7 +56,9 @@ const WordDescription = () => {
               word?.dictionary_type === 7 ? "upper" : ""
             }`}
           >
-            {isLatin ? word?.title : translate(word?.title || "")}
+            {isLatin
+              ? word?.title.replace(/--/g, "//")
+              : translate(word?.title.replace(/--/g, "//") || "")}
           </div>
           <div className="word-wrapper__lang" ref={langRef}>
             <button

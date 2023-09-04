@@ -86,7 +86,7 @@ const DictionaryList = () => {
               className={`words-link ${type === "7" ? "upper" : ""}`}
               to={`/lugat/${word.title}`}
             >
-              {word.title}
+              {word.title.replace(/--/g, "//")}
             </Link>
           </li>
         ))}
