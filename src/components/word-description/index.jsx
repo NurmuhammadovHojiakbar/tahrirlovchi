@@ -32,7 +32,7 @@ const WordDescription = () => {
     const rowState = convertToRaw(blocksFromHTML);
     rowState.blocks = rowState?.blocks?.map((el) => ({
       ...el,
-      text: el.text.startsWith("ing. - ")
+      text: el.text.startsWith("ing.")
         ? el.text
         : el.text
             .split(" ")
