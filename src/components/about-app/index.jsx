@@ -19,7 +19,7 @@ const AboutApp = () => {
               Tahrirlovchi.uz
             </Link>{" "}
             – so‘z va matnlarni lotin-kirill, kirill-lotin grafikasiga to‘g‘ri
-            o‘girish hamda tekshirish uchun yuborilgan matnni ilmo qoidalari
+            o‘girish hamda tekshirish uchun yuborilgan matnni imlo qoidalari
             asosida tahlil qilish va matnda xato yozilgan so‘zlarni ajratish,
             shuningdek, o‘zbek tilining izohli va imlo lug‘ati maʼlumotlar
             bazasidan samarali foydalanish imkoniyatlarini taqdim etadi.{" "}
