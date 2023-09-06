@@ -4,6 +4,11 @@
     padding-bottom: 30px;
     background-color: #47a992;
 
+    &__container{
+        position: relative;
+        z-index: 1;
+    }
+
     &::after{
         position: absolute;
         bottom: 0;
@@ -43,6 +48,14 @@
 
         &-text{
             margin: 0;
+        }
+
+        &-link{
+            color: #fff;
+
+            &:hover{
+                text-decoration: underline;
+            }
         }
     }
 }

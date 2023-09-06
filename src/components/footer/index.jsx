@@ -44,13 +44,15 @@ const Footer = () => {
             width={157}
             height={50}
           />
-          <img
-            className="site-footer__logo"
-            src={CompanyIcon}
-            alt="Uzinfocom"
-            width={181}
-            height={20}
-          />
+          <Link to="https://uzinfocom.uz/uz" target="_blank">
+            <img
+              className="site-footer__logo"
+              src={CompanyIcon}
+              alt="Uzinfocom"
+              width={181}
+              height={20}
+            />
+          </Link>
         </div>
         <div className="site-footer__socials">
           <div className="site-footer__line"></div>
@@ -70,7 +72,15 @@ const Footer = () => {
         </div>
         <div className="site-footer__info">
           <p className="site-footer__info-text">
-            O‘zbek tilini rivojlantirish jamg‘armasi
+            O‘zbek tilini rivojlantirish jamg‘armasi <br />
+            <Link
+              className="site-footer__info-link"
+              to="https://digital.uz/"
+              target="_blank"
+            >
+              Raqamli texnologiyalar vazirligi
+            </Link>{" "}
+            ko‘magida
           </p>
           <Link to="https://www.uz/ru/res/visitor/index?id=47189" target="_top">
             <img
