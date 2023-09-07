@@ -44,6 +44,13 @@ export const translatorApi = createApi({
         body: content,
       }),
     }),
+    addWord: builder.mutation({
+      query: (word) => ({
+        url: "/words/new-words/create/",
+        method: "POST",
+        body: { title: word },
+      }),
+    }),
     // Feedback
     sendFeedback: builder.mutation({
       query: (data) => ({
@@ -64,4 +71,5 @@ export const {
   usePostImageMutation,
   useCheckContentMutation,
   useSendFeedbackMutation,
+  useAddWordMutation,
 } = translatorApi;

@@ -8,10 +8,12 @@ import {
 } from "../../store/reducer/editor-slice";
 import { useRef, useState } from "react";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
+import { useAddWordMutation } from "../../store/api";
 
 const SuggestionModal = () => {
   const [custom, setCustom] = useState("");
   const ref = useRef(null);
+  const [addWord] = useAddWordMutation();
 
   const {
     mousePosition: { x, y },
@@ -66,7 +68,10 @@ const SuggestionModal = () => {
       </label>
       <button
         className="suggestions-button suggestions-button__skip"
-        onClick={() => dispatch(skipErrorWord(suggestions.word))}
+        onClick={() => {
+          dispatch(skipErrorWord(suggestions.word));
+          addWord(suggestions.word);
+        }}
       >
         E&apos;tiborsiz qoldirish
       </button>
