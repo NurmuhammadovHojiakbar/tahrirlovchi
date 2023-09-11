@@ -57,11 +57,12 @@ const SuggestionModal = () => {
         />
         <button
           className="suggestions-button suggestions-button__add"
-          onClick={() =>
+          onClick={() => {
             dispatch(
               replaceErrorWord({ word: suggestions.word, replace: custom })
-            )
-          }
+            );
+            addWord(custom);
+          }}
         >
           +
         </button>

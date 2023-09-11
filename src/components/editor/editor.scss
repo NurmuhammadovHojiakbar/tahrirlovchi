@@ -83,6 +83,7 @@
         display: flex;
         align-items: center;
         gap: 16px;
+        padding-top: 25px;
     }
 
     &-footer.right{
@@ -100,6 +101,18 @@
 
     &:active{
         transform: scale(0.9);
+    }
+}
+
+.character-length{
+    margin-left: auto;
+    white-space: nowrap;
+    color: #888888;
+    font-size: calc(var(--font-size) + 14px);
+    line-height: 19px;
+
+    &.red{
+        color: tomato;
     }
 }
 

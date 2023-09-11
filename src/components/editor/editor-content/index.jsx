@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Editor, EditorState, convertFromRaw, convertToRaw } from "draft-js";
+import { Editor, EditorState } from "draft-js";
 import PropTypes from "prop-types";
 import EditorHeader from "../editor-header";
 import {
@@ -10,7 +10,6 @@ import {
   ShareButton,
 } from "../../controllers";
 import { updateEditor } from "../../../store/reducer/editor-slice";
-import translate from "../../../utils/Translator";
 import {
   copyToClipboard,
   saveAsFile,
@@ -19,39 +18,22 @@ import {
 import { convertToHTML } from "draft-convert";
 import DOMPurify from "dompurify";
 
-const EditorContent = ({ pos }) => {
+const EditorContent = ({ pos, convertedState }) => {
   const editorRef = useRef(null);
   const dispatch = useDispatch();
-  const { content: editor, isLatin } = useSelector((state) => {
+  const { content: editor } = useSelector((state) => {
     return state.editorState;
   });
 
   const handleEditorChange = (newEditorState) => {
-    dispatch(updateEditor(newEditorState));
+    const count = newEditorState.getCurrentContent().getPlainText().length;
+    if (count < 5000) {
+      dispatch(updateEditor(newEditorState));
+      return;
+    }
   };
 
-  const rowState = convertToRaw(editor.getCurrentContent());
-  rowState.blocks = rowState.blocks.map((el) => ({
-    ...el,
-    text: isLatin
-      ? el.text
-          .split(" ")
-          .map((word) => translate(word, false))
-          .join(" ")
-      : el.text
-          .replace(
-            /\d+(\s+)((январ)|(феврал)|(март)|(апрел)|(май)|(июн)|(июл)|(август)|(сентябр)|(октябр)|(сентабр)|(октабр)|(ноябр)|(декабр)|(йил))/gi,
-            (matched) => {
-              const list = matched.split(" ").filter((w) => w !== "");
-              return `${list[0]}-${list[1]}`;
-            }
-          )
-          .split(" ")
-          .map((word) => translate(word, true))
-          .join(" "),
-  }));
-  const convertedState = convertFromRaw(rowState);
-  const translated = convertToHTML(convertedState);
+  const length = editor.getCurrentContent().getPlainText().length;
 
   return (
     <div className="editor-content">
@@ -61,7 +43,9 @@ const EditorContent = ({ pos }) => {
         {pos ? (
           <div
             className="editor-content__result"
-            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(translated) }}
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(convertToHTML(convertedState)),
+            }}
           ></div>
         ) : (
           <div
@@ -107,6 +91,11 @@ const EditorContent = ({ pos }) => {
         <ClearButton
           onClick={() => handleEditorChange(EditorState.createEmpty())}
         />
+        {!pos && (
+          <div className={`character-length ${length > 4950 ? "red" : ""}`}>
+            {length} / 5000
+          </div>
+        )}
       </footer>
     </div>
   );
@@ -114,6 +103,7 @@ const EditorContent = ({ pos }) => {
 
 EditorContent.propTypes = {
   pos: PropTypes.string,
+  convertedState: PropTypes.object,
 };
 
 export default EditorContent;
