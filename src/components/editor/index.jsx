@@ -40,9 +40,7 @@ const EditorContainer = () => {
         className="button-container"
         onClick={() => dispatch(updateLang(!isLatin))}
       >
-        <div className="editor-button">
-          <TranslateIcon />
-        </div>
+        <TranslateIcon className="translate-icon" />
       </div>
       <EditorContent />
       <EditorContent pos={"right"} convertedState={convertedState} />

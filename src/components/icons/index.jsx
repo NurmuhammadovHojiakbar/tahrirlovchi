@@ -1,4 +1,4 @@
-export function TranslateIcon(...props) {
+export function TranslateIcon({ ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +46,7 @@ export function TranslateIcon(...props) {
     </svg>
   );
 }
-export function DictIcon(...props) {
+export function DictIcon({ ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +67,7 @@ export function DictIcon(...props) {
     </svg>
   );
 }
-export function ServicesIcon(...props) {
+export function ServicesIcon({ ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -108,7 +108,7 @@ export function ServicesIcon(...props) {
     </svg>
   );
 }
-export function AboutIcon(...props) {
+export function AboutIcon({ ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -152,7 +152,7 @@ export function AboutIcon(...props) {
     </svg>
   );
 }
-export function SearchIcon(...props) {
+export function SearchIcon({ ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -174,7 +174,7 @@ export function SearchIcon(...props) {
   );
 }
 
-export function EyeIcon(...props) {
+export function EyeIcon({ ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -207,7 +207,7 @@ export function EyeIcon(...props) {
   );
 }
 
-export function FacebookIcon(...props) {
+export function FacebookIcon({ ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -253,7 +253,7 @@ export function FacebookIcon(...props) {
   );
 }
 
-export function TelegramIcon(...props) {
+export function TelegramIcon({ ...props }) {
   return (
     <svg
       id="Group_14370"
@@ -275,7 +275,7 @@ export function TelegramIcon(...props) {
   );
 }
 
-export function InstagramIcon(...props) {
+export function InstagramIcon({ ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -321,7 +321,7 @@ export function InstagramIcon(...props) {
   );
 }
 
-export function YoutubeIcon(...props) {
+export function YoutubeIcon({ ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -349,7 +349,7 @@ export function YoutubeIcon(...props) {
   );
 }
 
-export function SliderIcon(...props) {
+export function SliderIcon({ ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -368,7 +368,7 @@ export function SliderIcon(...props) {
   );
 }
 
-export function PhoneIcon(...props) {
+export function PhoneIcon({ ...props }) {
   return (
     <svg
       id="Group_141"
@@ -403,7 +403,7 @@ export function PhoneIcon(...props) {
     </svg>
   );
 }
-export function MailIcon(...props) {
+export function MailIcon({ ...props }) {
   return (
     <svg
       id="Group_139"
@@ -431,7 +431,7 @@ export function MailIcon(...props) {
     </svg>
   );
 }
-export function ClockIcon(...props) {
+export function ClockIcon({ ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -451,7 +451,7 @@ export function ClockIcon(...props) {
   );
 }
 
-export function CopyButtonIcon(...props) {
+export function CopyButtonIcon({ ...props }) {
   return (
     <svg
       id="Group_14463"
@@ -494,7 +494,7 @@ export function CopyButtonIcon(...props) {
   );
 }
 
-export function FileIcon(...props) {
+export function FileIcon({ ...props }) {
   return (
     <svg
       id="Group_14482"
@@ -523,7 +523,7 @@ export function FileIcon(...props) {
   );
 }
 
-export function WordIcon(...props) {
+export function WordIcon({ ...props }) {
   return (
     <svg
       id="Group_14484"
@@ -544,7 +544,7 @@ export function WordIcon(...props) {
     </svg>
   );
 }
-export function ExcelIcon(...props) {
+export function ExcelIcon({ ...props }) {
   return (
     <svg
       id="Group_14486"
@@ -593,7 +593,7 @@ export function ExcelIcon(...props) {
     </svg>
   );
 }
-export function BigSearchIcon(...props) {
+export function BigSearchIcon({ ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -634,7 +634,7 @@ export function BigSearchIcon(...props) {
   );
 }
 
-export function CopyIcon(...props) {
+export function CopyIcon({ ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -669,7 +669,7 @@ export function CopyIcon(...props) {
     </svg>
   );
 }
-export function SaveIcon(...props) {
+export function SaveIcon({ ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -722,7 +722,7 @@ export function SaveIcon(...props) {
     </svg>
   );
 }
-export function ShareIcon(...props) {
+export function ShareIcon({ ...props }) {
   return (
     <svg
       width="24px"
@@ -741,7 +741,7 @@ export function ShareIcon(...props) {
     </svg>
   );
 }
-export function ClearIcon(...props) {
+export function ClearIcon({ ...props }) {
   return (
     <svg
       width="24px"
@@ -760,7 +760,7 @@ export function ClearIcon(...props) {
     </svg>
   );
 }
-export function HumIcon(...props) {
+export function HumIcon({ ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -778,7 +778,7 @@ export function HumIcon(...props) {
     </svg>
   );
 }
-export function HumCloseIcon(...props) {
+export function HumCloseIcon({ ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -796,7 +796,7 @@ export function HumCloseIcon(...props) {
     </svg>
   );
 }
-export function Icon(...props) {
+export function Icon({ ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

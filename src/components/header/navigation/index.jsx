@@ -7,7 +7,7 @@ const Navigation = () => {
       id: 1,
       path: "/",
       title: "Lotin-Kirill",
-      icon: <TranslateIcon />,
+      icon: <TranslateIcon className="translate-icon" />,
     },
     {
       id: 2,
