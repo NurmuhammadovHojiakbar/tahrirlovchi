@@ -37,12 +37,23 @@
             min-height: 500px;
         }
 
-        &__result{
-            font-size: calc(var(--font-size) + 16px);
-        }
+        // &__result{
+        // }
+        
+        &__result {
+            p{
+                margin-top: 0;
+                font-size: calc(var(--font-size) + 16px);
+            }
 
-        &__result p{
-            margin: 0;
+            li{
+                margin-bottom: 16px;
+            }
+
+            h1,h2,h3,h4,h5,h6{
+                margin-top: 0;
+                margin-bottom: 16px;
+            }
         }
         
         &__result p:empty{
@@ -52,6 +63,11 @@
         &__context{
             flex-grow: 1;
             font-size: calc(var(--font-size) + 16px);
+
+            span[data-text="true"]{
+                display: block;
+                margin-bottom: 16px;
+            }
         }
     }
 
